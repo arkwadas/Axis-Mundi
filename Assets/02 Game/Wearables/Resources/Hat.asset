@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20eb1792e8048a46bf5c7c520a3ea3b, type: 3}
+  m_Name: Hat
+  m_EditorClassIdentifier: 
+  itemID: 1a48aacc-23f7-4ddd-a55e-19d5f9a3506a
+  displayName: "Hat zag\u0142ady"
+  description: 'Zniszczysz dzieki niemu swiat
+
+'
+  icon: {fileID: 21300000, guid: cdfd25b596cfa0b44b1e832889594dba, type: 3}
+  pickup: {fileID: 949412188870024398, guid: 6952a57f31e7a7c4299fc624da1132b2, type: 3}
+  stackable: 0
+  allowedEquipLocation: 0
