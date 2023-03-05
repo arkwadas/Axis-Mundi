@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 949412188870024398}
   - component: {fileID: 3843331479593339503}
   - component: {fileID: 2774398293350797428}
+  - component: {fileID: 6271858207715252603}
   m_Layer: 0
   m_Name: Helmet
   m_TagString: Untagged
@@ -326,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f208ba0dbe65d478b628ca24b59c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: 
 --- !u!136 &3843331479593339503
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -353,6 +355,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupIcon: {fileID: 4987925855927324012}
+--- !u!114 &6271858207715252603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725919711365993089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db452e8c09a62e41bfe6caed8cd07d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newHelmetId: 3
 --- !u!1001 &757984886514819180
 PrefabInstance:
   m_ObjectHideFlags: 0

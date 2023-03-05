@@ -12,12 +12,11 @@ namespace RPG.Invetories
     public class StatsEquipableItem : EquipableItem, IModifierProvide
     {
         private Equipment equipment;
-        [SerializeField] int newHelmetId;
+        //[SerializeField] int newHelmetId;
         [SerializeField]
         Modifier[] additiveModifiers;
         [SerializeField]
         Modifier[] percentageModifiers;
-        [SerializeField] GameObject Helmet = null; 
 
         [System.Serializable]
         struct Modifier
@@ -27,27 +26,64 @@ namespace RPG.Invetories
         }
 
         ;
-        /*[SerializeField] private bool activateScript;
+
+        StatsEquipableItem helmet;
+        Equipment equipmentHelmet;
+
+
+        [SerializeField] int newHelmetId;
+        int defaultHelmetId = 0;
 
         private void Awake()
         {
             
-            if (equipment)
-        {
-               // equipment.equipmentUpdated += UpdateWeapon;
-                SetManHelmetId();
-            //activateScript = false;
+            if (equipmentHelmet)
+            {
+                equipmentHelmet.equipmentUpdated += UpdateHelmet;
+            }
         }
-    }
 
-        // PUBLIC
-
+        private void UpdateHelmet()
+        {
+            var helmet = equipmentHelmet.GetItemInSlot(EquipLocation.Helmet) as StatsEquipableItem;
+            if (helmet == null)
+            {
+                SetManHelmetId();
+            }
+            else
+            {
+                DeafoultManHelmetId();
+            }
+        }
         private void SetManHelmetId()
         {
             CharacterCustomization characterCustomization = FindObjectOfType<CharacterCustomization>();
             characterCustomization.SetManHelmetId(newHelmetId);
-        }*/
+        }
+        private void DeafoultManHelmetId()
+        {
+            CharacterCustomization characterCustomization = FindObjectOfType<CharacterCustomization>();
+            characterCustomization.SetManHelmetId(defaultHelmetId);
+        }
 
+        /*    private void Awake()
+            {
+
+                if (equipment)
+                    {
+                         equipment.equipmentUpdated += UpdateWeapon;
+                    //SetManHelmetId();
+                     }
+        }
+
+
+
+            private void SetManHelmetId()
+            {
+                CharacterCustomization characterCustomization = FindObjectOfType<CharacterCustomization>();
+                characterCustomization.SetManHelmetId(newHelmetId);
+            }
+        */
 
         public IEnumerable<float> GetAdditiveModifier(Stats.Stat stat)
         {
