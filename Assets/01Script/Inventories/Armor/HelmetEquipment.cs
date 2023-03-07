@@ -8,14 +8,17 @@ using UnityEngine;
 
 namespace RPG.Invetories
 {
-    [CreateAssetMenu(menuName = ("RPG/Inventory/Equipable Item"))]
-    public class StatsEquipableItem : EquipableItem, IModifierProvide
+    [CreateAssetMenu(menuName = ("RPG/Inventory/Helmet Equipment"))]
+    public class HelmetEquipment : EquipableItem, IModifierProvide
     {
         [SerializeField]
         Modifier[] additiveModifiers;
         [SerializeField]
         Modifier[] percentageModifiers;
-        public SpawnArmor spawnArmor;
+        
+
+        [Header("Podaj nazwe gameObjectu")]
+        public string helmetModelName;
 
         [System.Serializable]
         struct Modifier
@@ -26,24 +29,8 @@ namespace RPG.Invetories
 
         ;
 
-        /*    private void Awake()
-            {
-
-                if (equipment)
-                    {
-                         equipment.equipmentUpdated += UpdateWeapon;
-                    //SetManHelmetId();
-                     }
-        }
 
 
-
-            private void SetManHelmetId()
-            {
-                CharacterCustomization characterCustomization = FindObjectOfType<CharacterCustomization>();
-                characterCustomization.SetManHelmetId(newHelmetId);
-            }
-        */
 
         public IEnumerable<float> GetAdditiveModifier(Stats.Stat stat)
         {
@@ -68,4 +55,3 @@ namespace RPG.Invetories
         }
     }
 }
-

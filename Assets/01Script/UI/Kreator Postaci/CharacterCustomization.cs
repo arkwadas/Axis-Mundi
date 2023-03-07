@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Saving;
 using GameDevTV.Saving;
+using RPG.Invetories;
 
 namespace RPG.Customization
 {
@@ -61,6 +62,8 @@ namespace RPG.Customization
         private int idBrowFamele;
         private int idEar;
 
+        [Header("CurrentEquipment")]
+        public HelmetEquipment currentHelmetEquipment;
 
 
         [Header("Armor")]
