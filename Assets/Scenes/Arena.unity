@@ -999,6 +999,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &273112557 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4032466831798288633, guid: 5d7f70789c69dba44b76f0db7e223c52,
+    type: 3}
+  m_PrefabInstance: {fileID: 2044831962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01754710d9f92ec4d9a21b81f5682667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &304818864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5085,12 +5097,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1352285693}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1352694632 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7441390898209161264, guid: 5d7f70789c69dba44b76f0db7e223c52,
-    type: 3}
-  m_PrefabInstance: {fileID: 2044831962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1361069435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7773,37 +7779,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: fc94a8a16336b0f4bab488afafa9c3fe, type: 3}
---- !u!1 &1894454138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1894454139}
-  m_Layer: 10
-  m_Name: EmptyHelmet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1894454139
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894454138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1352694632}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1914359716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 496506, guid: e33d966a7b2a13640bf08d0426672073,
@@ -8347,6 +8322,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 273112537, guid: 5d7f70789c69dba44b76f0db7e223c52, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 273112557}
     - target: {fileID: 274596242444573052, guid: 5d7f70789c69dba44b76f0db7e223c52,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9071,11 +9050,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2344377914866132627, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Size
-      value: 0.99996305
       objectReference: {fileID: 0}
     - target: {fileID: 3471973061290743049, guid: 5d7f70789c69dba44b76f0db7e223c52,
         type: 3}
@@ -9612,226 +9586,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7444459898510496100, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_03
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444556803099794066, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444561261835229620, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444641051429268970, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_21
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444675348002998256, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_26
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444679169399029756, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_03
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444702034751205708, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_04
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444744151284131036, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_09
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444781548659133008, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_09
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444841309905350844, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_02
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444859401411310312, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_07
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444863856637439726, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_07
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444873480587867338, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_17
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444898975446390546, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444936573114201378, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444949678490756348, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7444997535054890630, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445016354556475650, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_24
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445043917222145034, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_06
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445058260216485742, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_06
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445069960371051872, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_04
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445072082756528982, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445118349350178078, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_00
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445126086026280364, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445127763165389510, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445133763886779970, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_27
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445137014837427900, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_02
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445177727210580366, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_22
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445219037792674516, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445224385228492568, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_23
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445245019630306990, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445262507231217050, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445268244211127058, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445275780690446218, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446584596975924538, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446610994456478328, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446632361614853938, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_08
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446634113539801510, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_11
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446640222433255498, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446645897191270912, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Helmets_10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446649630199956426, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_08
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446655723399985752, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_19
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446669883892539526, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446669932499540754, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: m_Name
-      value: Male_Torso_11
-      objectReference: {fileID: 0}
     - target: {fileID: 7753710033991711124, guid: 5d7f70789c69dba44b76f0db7e223c52,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9862,12 +9616,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7834224112407838440, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      propertyPath: currentHelmetEquipment
-      value: 
-      objectReference: {fileID: 11400000, guid: e108cbf43b3d2b1429642df7ff2b0c9a,
-        type: 2}
     - target: {fileID: 7991667537824548043, guid: 5d7f70789c69dba44b76f0db7e223c52,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10019,11 +9767,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7441390898209161264, guid: 5d7f70789c69dba44b76f0db7e223c52,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1894454139}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d7f70789c69dba44b76f0db7e223c52, type: 3}
 --- !u!1001 &2053248399
 PrefabInstance:

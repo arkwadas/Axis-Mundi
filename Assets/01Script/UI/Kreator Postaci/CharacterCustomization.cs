@@ -64,6 +64,7 @@ namespace RPG.Customization
 
         [Header("CurrentEquipment")]
         public HelmetEquipment currentHelmetEquipment;
+        public TorseEquipment currentTorseEquipment;
 
 
         [Header("Armor")]

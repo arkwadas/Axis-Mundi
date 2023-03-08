@@ -11,7 +11,6 @@ public class HelmetModelChanger : MonoBehaviour
     //CharacterCustomization helmetCharacter;
     public List<GameObject> helmetModels;
     Equipment equipment;
-    HelmetModelChanger modelChanger;
     CharacterCustomization characterCustomization;
 
     private void Awake()

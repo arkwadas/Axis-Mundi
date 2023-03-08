@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3f8fdbd0adca4143a76d4c547410819, type: 3}
-  m_Name: 01_Helmet
+  m_Name: 0_01_Helmet
   m_EditorClassIdentifier: 
   itemID: 335f0dd1-c5fb-4d75-a2fd-2ea61e054bc9
   displayName: Maska chemika
@@ -25,4 +25,4 @@ MonoBehaviour:
   - stat: 0
     value: 30
   percentageModifiers: []
-  helmetModelName: Chr_Head_No_Elements_Male_01
+  helmetModelName: Male_Helmets_01

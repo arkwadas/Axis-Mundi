@@ -9,7 +9,7 @@ using UnityEngine;
 namespace RPG.Invetories
 {
     [CreateAssetMenu(menuName = ("RPG/Inventory/Torse Equipment"))]
-    public class Torse : EquipableItem, IModifierProvide
+    public class TorseEquipment : EquipableItem, IModifierProvide
     {
         [SerializeField]
         Modifier[] additiveModifiers;

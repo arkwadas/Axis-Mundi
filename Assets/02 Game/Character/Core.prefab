@@ -888,6 +888,37 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1894454138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894454139}
+  m_Layer: 10
+  m_Name: EmptyHelmet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1894454139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894454138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7441390898209161264}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2006830175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,6 +1622,226 @@ PrefabInstance:
       propertyPath: PerformCardinalObstacleRaycastDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5810098757351115448, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810107560466316794, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810155817822147538, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810155864241301574, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810174951887342346, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810178820830950040, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810190466365933926, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810192838951538674, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810194253041100938, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810206241409360576, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810770077806220704, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810776749367337878, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810798270532313006, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810814262900663498, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810824233274388930, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810843760765826684, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810863483517269356, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810869984030484998, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810873331276039810, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_27
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810888745871754718, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_00
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810919446891031060, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810952513214193998, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811000291017870682, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811010430322187218, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811013337086775114, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811017709798641262, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811036697149573080, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811398212889156004, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811424520144802386, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811427141590471028, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811506781254952234, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811567910329252236, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811582462731859772, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811613838458572592, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811647277964919440, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811675877032324124, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811692020789148200, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811696359405135406, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Helmets_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811702413531101308, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811764932421352930, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811801980236210130, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811811532176669706, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811828144396160582, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811883766227627068, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      propertyPath: m_Name
+      value: Male_Torso_14
+      objectReference: {fileID: 0}
     - target: {fileID: 6579462621812799016, guid: b501627b869331443a68d1124f46fd31,
         type: 3}
       propertyPath: nullManHelmet
@@ -1608,9 +1859,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6579462621812799016, guid: b501627b869331443a68d1124f46fd31,
         type: 3}
+      propertyPath: currentTorseEquipment
+      value: 
+      objectReference: {fileID: 11400000, guid: 5761e466cdf15f948822cc6c2ceb111a,
+        type: 2}
+    - target: {fileID: 6579462621812799016, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
       propertyPath: currentHelmetEquipment
       value: 
-      objectReference: {fileID: 11400000, guid: 8da8a7f9927b4394fbad5bef5ca723d8,
+      objectReference: {fileID: 11400000, guid: e108cbf43b3d2b1429642df7ff2b0c9a,
         type: 2}
     - target: {fileID: 6579462621812799016, guid: b501627b869331443a68d1124f46fd31,
         type: 3}
@@ -1841,6 +2098,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 2042872286}
+    - targetCorrespondingSourceObject: {fileID: 5815012087739959536, guid: b501627b869331443a68d1124f46fd31,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1894454139}
     - targetCorrespondingSourceObject: {fileID: 5813479851814923584, guid: b501627b869331443a68d1124f46fd31,
         type: 3}
       insertIndex: -1
@@ -1976,7 +2237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8454c144466e7c84bb9c0ecbf11c5d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helmetModelChanger: {fileID: 1352694633}
+  nakedHelmetModel: EmptyHelmet
+  nakedTorseModel: Male_Torso_00
 --- !u!114 &1128738466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2066,6 +2328,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4032466830839957696}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &7441390898209161264 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5815012087739959536, guid: b501627b869331443a68d1124f46fd31,
+    type: 3}
+  m_PrefabInstance: {fileID: 4032466830839957696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7444459898510496100 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5811398212889156004, guid: b501627b869331443a68d1124f46fd31,
@@ -2078,6 +2346,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4032466830839957696}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7444561261835229620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5811427141590471028, guid: b501627b869331443a68d1124f46fd31,
+    type: 3}
+  m_PrefabInstance: {fileID: 4032466830839957696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2003061406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444561261835229620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1bf20a64ecb704ea27c956cb8c743f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torsoModels: []
 --- !u!1 &7444569973070786706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5811437669731711058, guid: b501627b869331443a68d1124f46fd31,
