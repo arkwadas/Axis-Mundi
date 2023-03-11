@@ -3761,6 +3761,18 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: fc94a8a16336b0f4bab488afafa9c3fe, type: 3}
+--- !u!114 &988512479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 273112418, guid: 5d7f70789c69dba44b76f0db7e223c52,
+    type: 3}
+  m_PrefabInstance: {fileID: 2044831962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c554ea55e33e434bbd89e14f9fd21d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1000826746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8326,6 +8338,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 273112557}
+    - target: {fileID: 273112537, guid: 5d7f70789c69dba44b76f0db7e223c52, type: 3}
+      propertyPath: equipment
+      value: 
+      objectReference: {fileID: 988512479}
+    - target: {fileID: 273112537, guid: 5d7f70789c69dba44b76f0db7e223c52, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 274596242444573052, guid: 5d7f70789c69dba44b76f0db7e223c52,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9256,6 +9276,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4032466831798288633, guid: 5d7f70789c69dba44b76f0db7e223c52,
+        type: 3}
+      propertyPath: InitialHealth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 4078893535533203850, guid: 5d7f70789c69dba44b76f0db7e223c52,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9616,6 +9641,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7834224112407838440, guid: 5d7f70789c69dba44b76f0db7e223c52,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834224112407838440, guid: 5d7f70789c69dba44b76f0db7e223c52,
+        type: 3}
+      propertyPath: currentHelmetEquipment
+      value: 
+      objectReference: {fileID: 11400000, guid: 8da8a7f9927b4394fbad5bef5ca723d8,
+        type: 2}
     - target: {fileID: 7991667537824548043, guid: 5d7f70789c69dba44b76f0db7e223c52,
         type: 3}
       propertyPath: m_AnchorMax.y

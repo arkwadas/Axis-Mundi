@@ -8,8 +8,7 @@ using UnityEngine;
 
 public class PlayerEquipmentManager : MonoBehaviour
 {
-    Equipment equipment;
-    [SerializeField] Health player;
+    [SerializeField]Equipment equipment;
 
     [Header("Equipment Model Changer")]
      
@@ -34,7 +33,6 @@ public class PlayerEquipmentManager : MonoBehaviour
 
     private void Start()
     {
-        player = GetComponent<Health>();
         EquipAllEquipmentModelsOnStart();
     }
 
@@ -42,8 +40,7 @@ public class PlayerEquipmentManager : MonoBehaviour
     {
         //Helmet
         helmetModelChanger.UnEquipAllHelmetModels();
-        var helmet = equipment.GetItemInSlot(EquipLocation.Helmet) as HelmetEquipment;
-        if (helmet != null)
+        if (characterCustomization.currentHelmetEquipment !=null)
         {
             helmetModelChanger.EquipHelmetModelByName(characterCustomization.currentHelmetEquipment.helmetModelName);
         }
@@ -53,7 +50,7 @@ public class PlayerEquipmentManager : MonoBehaviour
         }
 
         //Next Pancerz
-        torsoModelChanger.UnEquipAllTorsotModels();
+       /* torsoModelChanger.UnEquipAllTorsotModels();
         var torse = equipment.GetItemInSlot(EquipLocation.Trousers) as TorseEquipment;
         if (torse != null)
         {
@@ -62,7 +59,7 @@ public class PlayerEquipmentManager : MonoBehaviour
         else
         {
             torsoModelChanger.EquipTorsoModelByName(nakedTorseModel);
-        }
+        }*/
     }
 
 
