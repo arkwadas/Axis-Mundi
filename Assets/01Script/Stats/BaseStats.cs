@@ -9,6 +9,9 @@ using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
 using MoreMountains.TopDownEngine;
 using RPG.Combat;
+using GameDevTV.Inventories;
+using RPG.Invetories;
+using TMPro;
 
 //namespace RPG.Stats
 namespace MoreMountains.Tools
@@ -28,8 +31,6 @@ namespace MoreMountains.Tools
         [SerializeField] bool shouldUseModifires = false;
 
 
-
-
         public event Action onLevelUp;
 
         LazyValue<int> currentLevel;
@@ -39,14 +40,12 @@ namespace MoreMountains.Tools
 
 
 
-        
         public virtual void Awake()
         {
             // Initialization();
             experience = GetComponent<Experience>();
-            currentLevel = new LazyValue<int>(CalculateLevel)
-
-;
+            currentLevel = new LazyValue<int>(CalculateLevel);
+            
         }
 
         private void Start()
@@ -58,9 +57,9 @@ namespace MoreMountains.Tools
         private void Update()
         {
             //currentLevel.ForceInit(); //dla lazy value
-            
-            //UpdateHealth();
 
+            //UpdateHealth();
+            // SetActiveHelmet();
 
 
         }

@@ -64,7 +64,9 @@ namespace RPG.Customization
 
         [Header("CurrentEquipment")]
         public HelmetEquipment currentHelmetEquipment;
-        public TorseEquipment currentTorseEquipment;
+        //public TorseEquipment currentTorseEquipment;
+
+
 
 
         [Header("Armor")]
@@ -90,42 +92,7 @@ namespace RPG.Customization
             idManArmorPancerz = newId;
         }
 
-        private int idFameleArmorPancerz;
-        
-        private GameObject currentFameleArmorPancerz;
-        public GameObject[] fameleArmorPancerz;
-
-        private int idManArmorSpodnie;
-        private GameObject currentManArmorSpodnie;
-        public GameObject[] manArmorSpodnie;
-
-        private int idFameleArmorSpodnie;
-        private GameObject currentFameleArmorSpodnie;
-        public GameObject[] fameleArmorSpodnie;
-
-        private int idManButy;
-        private GameObject currentManButy;
-        public GameObject[] manButy;
-
-        private int idFameleButy;
-        private GameObject currentFameleButy;
-        public GameObject[] fameleButy;
-
-        private int idManHand;
-        private GameObject currentManHand;
-        public GameObject[] manHands;
-
-        private int idFameleHand;
-        private GameObject currentFameleHand;
-        public GameObject[] fameleHands;
-
-        private int idManPeleryna;
-        private GameObject currentManPeleryna;
-        public GameObject[] manPeleryna;
-
-        private int idFamelePeleryna;
-        private GameObject currentFamelePeleryna;
-        public GameObject[] famelePeleryna;
+       
 
         private void Start()
         {
@@ -141,20 +108,7 @@ namespace RPG.Customization
             BrowFamele();
             Ear();
 
-            //Uzbrojenie
-            ManHelmet();
-            ManArmorPancerz();
-            ManArmorSpodnie();
-            ManButy();
-            ManHand();
-            ManPeleryna();
 
-            FameleHelmet();
-            FameleArmorPancerz();
-            FameleArmorSpodnie();
-            FameleButy();
-            FameleHand();
-            FamelePeleryna();
 
             //Kolory 
             ChangeSkinColor();
@@ -165,6 +119,7 @@ namespace RPG.Customization
         }
         private void Update()
         {
+            
             ChangeSkinColor();
             ChangeScarColor();
             ChangeHairColor();
@@ -174,21 +129,9 @@ namespace RPG.Customization
 
             UpdateManHelmet();
             UpdateManArmorPancerz();
-            //Uzbrojenie
-            /*
-             * UpdateManHelmet();
-UpdateManArmorPancerz();
-UpdateManArmorSpodnie();
-UpdateManButy();
-UpdateManHand();
-UpdateManPeleryna();
-UpdateFameleHelmet();
-UpdateFameleArmorPancerz();
-UpdateFameleArmorSpodnie();
-UpdateFameleButy();
-UpdateFameleHand();
-UpdateFamelePeleryna();*/
+            
         }
+
 
         public void ManHelmet()
         {
@@ -278,149 +221,9 @@ UpdateFamelePeleryna();*/
             }
         }
 
-        // FameleArmorPancerz
-        public void FameleArmorPancerz()
-        {
-            for (int i = 0; i < fameleArmorPancerz.Length; i++)
-            {
-                if (i == idFameleArmorPancerz)
-                {
-                    fameleArmorPancerz[i].SetActive(true);
-                }
-                else
-                {
-                    fameleArmorPancerz[i].SetActive(false);
-                }
-            }
-        }
 
-        // ManArmorSpodnie
-        public void ManArmorSpodnie()
-        {
-            for (int i = 0; i < manArmorSpodnie.Length; i++)
-            {
-                if (i == idManArmorSpodnie)
-                {
-                    manArmorSpodnie[i].SetActive(true);
-                }
-                else
-                {
-                    manArmorSpodnie[i].SetActive(false);
-                }
-            }
-        }
 
-        // FameleArmorSpodnie
-        public void FameleArmorSpodnie()
-        {
-            for (int i = 0; i < fameleArmorSpodnie.Length; i++)
-            {
-                if (i == idFameleArmorSpodnie)
-                {
-                    fameleArmorSpodnie[i].SetActive(true);
-                }
-                else
-                {
-                    fameleArmorSpodnie[i].SetActive(false);
-                }
-            }
-        }
-
-        // ManButy
-        public void ManButy()
-        {
-            for (int i = 0; i < manButy.Length; i++)
-            {
-                if (i == idManButy)
-                {
-                    manButy[i].SetActive(true);
-                }
-                else
-                {
-                    manButy[i].SetActive(false);
-                }
-            }
-        }
-
-        // FameleButy
-        public void FameleButy()
-        {
-            for (int i = 0; i < fameleButy.Length; i++)
-            {
-                if (i == idFameleButy)
-                {
-                    fameleButy[i].SetActive(true);
-                }
-                else
-                {
-                    fameleButy[i].SetActive(false);
-                }
-            }
-        }
-
-        // ManHand
-        public void ManHand()
-        {
-            for (int i = 0; i < manHands.Length; i++)
-            {
-                if (i == idManHand)
-                {
-                    manHands[i].SetActive(true);
-                }
-                else
-                {
-                    manHands[i].SetActive(false);
-                }
-            }
-        }
-
-        // ManPeleryna
-        public void ManPeleryna()
-        {
-            for (int i = 0; i < manPeleryna.Length; i++)
-            {
-                if (i == idManPeleryna)
-                {
-                    manPeleryna[i].SetActive(true);
-                }
-                else
-                {
-                    manPeleryna[i].SetActive(false);
-                }
-            }
-        }
-
-        // FamelePeleryna
-        public void FamelePeleryna()
-        {
-            for (int i = 0; i < famelePeleryna.Length; i++)
-            {
-                if (i == idFamelePeleryna)
-                {
-                    famelePeleryna[i].SetActive(true);
-                }
-                else
-                {
-                    famelePeleryna[i].SetActive(false);
-                }
-            }
-        }
-
-        // FameleHand
-        public void FameleHand()
-        {
-            for (int i = 0; i < fameleHands.Length; i++)
-            {
-                if (i == idFameleHand)
-                {
-                    fameleHands[i].SetActive(true);
-                }
-                else
-                {
-                    fameleHands[i].SetActive(false);
-                }
-            }
-        }
+        
 
 
         public void Hair()
@@ -1266,6 +1069,7 @@ UpdateFamelePeleryna();*/
         */
         public object CaptureState()
         {
+            
             Dictionary<string, object> data = new Dictionary<string, object>();
             //MOIDELE
             data["W³osy"] = idHair;
@@ -1286,16 +1090,16 @@ UpdateFamelePeleryna();*/
             data["Gender"] = idGender;
             data["ElfHuman"] = idElfHuman;
             return data;
-
+            
             // KOLORY
-           /* return idColor;
-            return idSkinColor;
-            return idTatoColor;
-            return idScarColor;
-            return idEyeColor;
-            return idStubbleColor;
-            */
-    }
+            /* return idColor;
+             return idSkinColor;
+             return idTatoColor;
+             return idScarColor;
+             return idEyeColor;
+             return idStubbleColor;
+             */
+        }
 
         public void RestoreState(object state)
         {
@@ -1336,9 +1140,12 @@ UpdateFamelePeleryna();*/
             idElfHuman = (int)data["ElfHuman"];
             ElfHuman(idElfHuman);
 
-
+           
         }
+
+
     }
-}
+    }
+
 
 

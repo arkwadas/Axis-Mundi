@@ -13,19 +13,13 @@ public class HelmetModelChanger : MonoBehaviour
     Equipment equipment;
     CharacterCustomization characterCustomization;
 
+    public PlayerEquipmentManager equipmentManager;
+
     private void Awake()
     {
         GetAllHelmetModels();
         
-        equipment = GetComponent<Equipment>();
-        if (equipment)
-        {
-                // UpdateHelmet();
-        }
-        
     }
-
-    
 
     private void GetAllHelmetModels()
     {

@@ -1,4 +1,5 @@
 
+using GameDevTV.Saving;
 using GameDevTV.Utils;
 using MoreMountains.Tools;
 using TMPro;
@@ -9,8 +10,8 @@ namespace RPG.Combat
    
 {
 
-public class ManaScript : MonoBehaviour
-{
+public class ManaScript : MonoBehaviour, ISaveable
+    {
         public Image manaBar = null;
         [SerializeField] TextMeshProUGUI manaText = null;
 
