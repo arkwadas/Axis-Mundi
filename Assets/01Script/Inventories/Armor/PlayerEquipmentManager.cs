@@ -17,13 +17,12 @@ public class PlayerEquipmentManager : MonoBehaviour, ISaveable
 
     [Header("Equipment Model Changer")]
 
-    HelmetEquipment currentHelmetEquipment;
+    public List<GameObject> hideWhenHelmetActivate;
 
     HelmetModelChanger helmetModelChanger;
     CharacterCustomization characterCustomization;
     TorsoModelChanger torsoModelChanger;
 
-    int activeIndex = -1;
     private int activeHelmetIndex = -1;
     // leg
     // Hand itp
@@ -41,20 +40,26 @@ public class PlayerEquipmentManager : MonoBehaviour, ISaveable
 
     private void Awake()
     {
-        helmet = new LazyValue<float>(GetMaxHelmet);
-        characterCustomization = GetComponentInParent<CharacterCustomization>();
-        helmetModelChanger = GetComponentInChildren<HelmetModelChanger>();
-        torsoModelChanger = GetComponentInChildren<TorsoModelChanger>();
 
+        helmet = new LazyValue<float>(GetMaxHelmet);
+        //characterCustomization = GetComponentInParent<CharacterCustomization>();
+        //helmetModelChanger = GetComponentInChildren<HelmetModelChanger>();
+       
+
+        
     }
 
     private void Update()
     {
-        CurrentHelmet.text = Mathf.FloorToInt(GetMaxHelmet()).ToString();
+        //CurrentHelmet.text = Mathf.FloorToInt(GetMaxHelmet()).ToString();
         int index = Mathf.RoundToInt(GetMaxHelmet()) - 1;
         if (index != activeHelmetIndex)
         {
             ActivateHelmet();
+        }
+        if (index > 1)
+        {
+            UnEquipAllHelmetModels();
         }
     }
 
@@ -62,6 +67,15 @@ public class PlayerEquipmentManager : MonoBehaviour, ISaveable
     {
         ActivateHelmet();
        // EquipAllEquipmentModelsOnStart();
+    }
+
+
+    public void UnEquipAllHelmetModels()
+    {
+        foreach (GameObject hide in hideWhenHelmetActivate)
+        {
+            hide.SetActive(false);
+        }
     }
 
     void ActivateHelmet()
@@ -93,7 +107,7 @@ public class PlayerEquipmentManager : MonoBehaviour, ISaveable
     private void EquipAllEquipmentModelsOnStart()
      {
          //Helmet
-         currentHelmetEquipment = equipment.GetItemInSlot(EquipLocation.Helmet) as HelmetEquipment;
+         //currentHelmetEquipment = equipment.GetItemInSlot(EquipLocation.Helmet) as HelmetEquipment;
         // helmetModelChanger.UnEquipAllHelmetModels();
          if (characterCustomization.currentHelmetEquipment !=null)
          {

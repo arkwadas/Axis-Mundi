@@ -15,58 +15,6 @@ public class ManaScript : MonoBehaviour, ISaveable
         public Image manaBar = null;
         [SerializeField] TextMeshProUGUI manaText = null;
 
-        /*[SerializeField] public float currentMana = 100f;
-
-        [SerializeField] public float maxMana = 100f;
-        [SerializeField] public float regenerateSpeed = 0.1f;
-
-        private void Start()
-        {
-            currentMana = maxMana;
-            InvokeRepeating("RegenerateMana", 1f, 1f);
-        }
-        private void Update()
-            {
-                Mana();
-            }
-
-            private void Mana()
-            {
-                  if (currentMana < maxMana)
-                  {
-                      manaBar.fillAmount = Mathf.MoveTowards(manaBar.fillAmount, 1f, Time.deltaTime * 0.01f);
-                      currentMana = Mathf.MoveTowards(currentMana / maxMana, 1f, Time.deltaTime * 0.01f) * maxMana;
-                  }
-
-                  if (currentMana < 0)
-                  {
-                      currentMana = 0;
-                  }
-                manaBar.fillAmount = currentMana / maxMana;
-                manaText.text = Mathf.FloorToInt(currentMana).ToString();
-
-              }
-
-            private void RegenerateMana()
-        {
-            currentMana += regenerateSpeed;
-            currentMana = Mathf.Clamp(currentMana, 0, maxMana);
-        }
-
-        public void ReduceMana(float mana)
-        {
-            if (mana <= currentMana)
-            {
-                currentMana -= mana;
-                manaBar.fillAmount -= mana / maxMana;
-            }
-            else
-            {
-                // noth enounth mana!
-            }
-               // manaBar.fillAmount = currentMana / maxMana;
-
-            }*/
         LazyValue<float> mana;
 
         private void Awake()

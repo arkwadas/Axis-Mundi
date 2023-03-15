@@ -4,6 +4,7 @@ using UnityEngine;
 using RPG.Saving;
 using GameDevTV.Saving;
 using RPG.Invetories;
+using System.Collections;
 
 namespace RPG.Customization
 {
@@ -119,111 +120,101 @@ namespace RPG.Customization
         }
         private void Update()
         {
-            
+            if (shouldCalculateSkinColor)
+            {
+                StartCoroutine(CalculateSkinColor());
+                shouldCalculateSkinColor = false;
+            }
+            if (shouldCalculateScarColor)
+            {
+                StartCoroutine(CalculateScarColor());
+                shouldCalculateScarColor = false;
+            }
+            if (shouldCalculateHairColor)
+            {
+                StartCoroutine(CalculateHairColor());
+                shouldCalculateHairColor = false;
+            }
+            if (shouldCalculateTatoColor)
+            {
+                StartCoroutine(CalculateTatoColor());
+                shouldCalculateTatoColor = false;
+            }
+            if (shouldCalculateEyeColor)
+            {
+                StartCoroutine(CalculateEyeColor());
+                shouldCalculateEyeColor = false;
+            }
+            if (shouldCalculateStubbleColor)
+            {
+                StartCoroutine(CalculateStubbleColor());
+                shouldCalculateStubbleColor = false;
+            }
+
+
+        }
+
+        private IEnumerator CalculateSkinColor()
+        {
             ChangeSkinColor();
+            yield return null;
+        }
+        public void SomeFunctionThatTriggersSkinColorCalculation()
+        {
+            shouldCalculateSkinColor = true;
+        }
+
+        private IEnumerator CalculateScarColor()
+        {
             ChangeScarColor();
+            yield return null;
+        }
+
+        public void SomeFunctionThatTriggersScarColorCalculation()
+        {
+            shouldCalculateScarColor = true;
+        }
+        private IEnumerator CalculateHairColor()
+        {
             ChangeHairColor();
+            yield return null;
+        }
+
+        public void SomeFunctionThatTriggersHairColorCalculation()
+        {
+            shouldCalculateHairColor = true;
+        }
+        private IEnumerator CalculateTatoColor()
+        {
             ChangeTatoColor();
+            yield return null;
+        }
+
+        public void SomeFunctionThatTriggersTatoColorCalculation()
+        {
+            shouldCalculateTatoColor = true;
+        }
+        private IEnumerator CalculateEyeColor()
+        {
             ChangeEyeColor();
+            yield return null;
+        }
+
+        public void SomeFunctionThatTriggersEyeColorCalculation()
+        {
+            shouldCalculateEyeColor = true;
+        }
+        private IEnumerator CalculateStubbleColor()
+        {
             ChangeStubbleColor();
-
-            UpdateManHelmet();
-            UpdateManArmorPancerz();
-            
+            yield return null;
         }
 
-
-        public void ManHelmet()
+        public void SomeFunctionThatTriggersStubbleColorCalculation()
         {
-            for (int i = 0; i < manHelmet.Length; i++)
-            {
-                if (i == idManHelmet)
-                {
-                    manHelmet[i].SetActive(true);
-                }
-                else
-                {
-                    manHelmet[i].SetActive(false);
-                }
-            }
-
+            shouldCalculateStubbleColor = true;
         }
 
-        public void UpdateManHelmet()
-        {
-            // Dezaktywuj bie¿¹cy obiekt he³mu dla mêskiej postaci
-            if (currentManHelmet != null)
-            {
-                currentManHelmet.SetActive(false);
-            }
-
-            // Aktywuj nowy obiekt he³mu na podstawie aktualnego identyfikatora
-            if (manHelmet.Length > 0)
-            {
-                int index = idManHelmet % manHelmet.Length;
-                manHelmet[index].SetActive(true);
-                currentManHelmet = manHelmet[index];
-            }
-        }
-
-        // FameleHelmet
-        public void FameleHelmet()
-        {
-            for (int i = 0; i < fameleHelmet.Length; i++)
-            {
-                if (i == idFameleHelmet)
-                {
-                    fameleHelmet[i].SetActive(true);
-                }
-                else
-                {
-                    fameleHelmet[i].SetActive(false);
-                }
-            }
-        }
-
-        // ManArmorPancerz
-        public void ManArmorPancerz()
-        {
-            for (int i = 0; i < manArmorPancerz.Length; i++)
-            {
-                if (i == idManArmorPancerz)
-                {
-                    manArmorPancerz[i].SetActive(true);
-                }
-                else
-                {
-                    manArmorPancerz[i].SetActive(false);
-                }
-            }
-        }
-
-        public void UpdateManArmorPancerz()
-        {
-            // Dezaktywuj bie¿¹cy obiekt pancerza dla mêskiej postaci
-            if (currentManArmorPancerz != null)
-            {
-                currentManArmorPancerz.SetActive(false);
-            }
-
-            if (currentManArmorPancerz == null)
-            {
-                nullManArmorPancerz.SetActive(true);
-            }
-
-            // Aktywuj nowy obiekt pancerza na podstawie aktualnego identyfikatora
-            if (manArmorPancerz.Length >= 0)
-            {
-                int index = idManArmorPancerz % manArmorPancerz.Length;
-                nullManArmorPancerz.SetActive(false);
-                manArmorPancerz[index].SetActive(true);
-                currentManArmorPancerz = manArmorPancerz[index];
-            }
-        }
-
-
-
-        
 
 
         public void Hair()
@@ -344,38 +335,6 @@ namespace RPG.Customization
         void Awake()
         {
            
-
-            // Przejœcie do nastepnej sceny
-            //DontDestroyOnLoad(gameObject);
-            /*for (int i = 0; i < hairModels.Length; i++)
-            {
-                DontDestroyOnLoad(hairModels[i]);
-                return;
-            }
-            for (int i = 0; i < faceManModels.Length; i++)
-            {
-                DontDestroyOnLoad(faceManModels[i]);
-            }
-            for (int i = 0; i < faceFameleModels.Length; i++)
-            {
-                DontDestroyOnLoad(faceFameleModels[i]);
-            }
-            for (int i = 0; i < beardModels.Length; i++)
-            {
-                DontDestroyOnLoad(beardModels[i]);
-            }
-            for (int i = 0; i < browModels.Length; i++)
-            {
-                DontDestroyOnLoad(browModels[i]);
-            }
-            for (int i = 0; i < browFameleModels.Length; i++)
-            {
-                DontDestroyOnLoad(browFameleModels[i]);
-            }
-            for (int i = 0; i < earModels.Length; i++)
-            {
-                DontDestroyOnLoad(earModels[i]);
-            }*/
         }
 
 
@@ -1014,6 +973,12 @@ namespace RPG.Customization
 
         public GameObject[] menFamele = new GameObject[2];
         public GameObject[] elfHuman = new GameObject[2];
+        private bool shouldCalculateSkinColor;
+        private bool shouldCalculateScarColor;
+        private bool shouldCalculateHairColor;
+        private bool shouldCalculateTatoColor;
+        private bool shouldCalculateEyeColor;
+        private bool shouldCalculateStubbleColor;
 
         public void MenFamele(int index)
         {

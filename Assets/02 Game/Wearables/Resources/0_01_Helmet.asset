@@ -15,10 +15,10 @@ MonoBehaviour:
   itemID: 335f0dd1-c5fb-4d75-a2fd-2ea61e054bc9
   displayName: Maska chemika
   description: 
-  icon: {fileID: 21300000, guid: a9ec9b1350fca574f925766496253fb5, type: 3}
+  icon: {fileID: 21300000, guid: cc4ab7cc78c7e2a459d5664a1befca9a, type: 3}
   pickup: {fileID: 949412188870024398, guid: 61d288757b0b00645a292f4cebb76d09, type: 3}
   stackable: 0
-  allowedEquipLocation: 5
+  allowedEquipLocation: 0
   equipCondition:
     and: []
   additiveModifiers:
