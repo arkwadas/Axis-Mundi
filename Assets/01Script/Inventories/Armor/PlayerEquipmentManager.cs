@@ -17,11 +17,9 @@ public class PlayerEquipmentManager : MonoBehaviour, ISaveable
 
     [Header("Equipment Model Changer")]
 
-    public List<GameObject> hideWhenHelmetActivate;
+    
 
-    HelmetModelChanger helmetModelChanger;
-    CharacterCustomization characterCustomization;
-    TorsoModelChanger torsoModelChanger;
+
 
     private int activeHelmetIndex = -1;
     // leg
@@ -32,11 +30,78 @@ public class PlayerEquipmentManager : MonoBehaviour, ISaveable
     public string nakedTorseModel;
 
     [SerializeField] TextMeshProUGUI CurrentHelmet = null;
-    LazyValue<float> helmet;
 
+//MAN EQUIPMENT
+    //Head
+    LazyValue<float> helmet;   
     [SerializeField]GameObject[] Helmets;
+    public List<GameObject> hideWhenHelmetActivate;
 
- 
+    //Torse
+    LazyValue<float> torse;
+    [SerializeField] GameObject[] Torse;
+    public List<GameObject> hideWhenTorseActivate;
+    LazyValue<float> rightArm;
+    [SerializeField] GameObject[] RightArm;
+    public List<GameObject> hideWhenRightArmActivate;
+    LazyValue<float> leftArm;
+    [SerializeField] GameObject[] LeftArm;
+    public List<GameObject> hideWhenLeftArmActivate;
+    LazyValue<float> hips;
+    [SerializeField] GameObject[] Hips;
+    public List<GameObject> hideWhenHipsActivate;
+
+    //Hands
+    LazyValue<float> rightHands;
+    [SerializeField] GameObject[] RightHands;
+    public List<GameObject> hideWhenRightHandsActivate;
+    LazyValue<float> leftHands;
+    [SerializeField] GameObject[] LeftHands;
+    public List<GameObject> hideWhenLeftHandsActivate;
+
+    //Shoes
+    LazyValue<float> rightShoes;
+    [SerializeField] GameObject[] RightShoes;
+    public List<GameObject> hideWhenRightShoesActivate;
+    LazyValue<float> leftShoes;
+    [SerializeField] GameObject[] LeftShoes;
+    public List<GameObject> hideWhenLeftShoesActivate;
+
+    //MAN EQUIPMENT
+    //Head
+    LazyValue<float> famelehelmet;
+    [SerializeField] GameObject[] fameleHelmets;
+    public List<GameObject> famelehideWhenHelmetActivate;
+
+    //Torse
+    LazyValue<float> fameletorse;
+    [SerializeField] GameObject[] fameleTorse;
+    public List<GameObject> famelehideWhenTorseActivate;
+    LazyValue<float> famelerightArm;
+    [SerializeField] GameObject[] fameleRightArm;
+    public List<GameObject> famelehideWhenRightArmActivate;
+    LazyValue<float> fameleleftArm;
+    [SerializeField] GameObject[] fameleLeftArm;
+    public List<GameObject> famelehideWhenLeftArmActivate;
+    LazyValue<float> famelehips;
+    [SerializeField] GameObject[] fameleHips;
+    public List<GameObject> famelehideWhenHipsActivate;
+
+    //Hands
+    LazyValue<float> famelerightHands;
+    [SerializeField] GameObject[] fameleRightHands;
+    public List<GameObject> famelehideWhenRightHandsActivate;
+    LazyValue<float> fameleleftHands;
+    [SerializeField] GameObject[] fameleLeftHands;
+    public List<GameObject> famelehideWhenLeftHandsActivate;
+
+    //Shoes
+    LazyValue<float> famelerightShoes;
+    [SerializeField] GameObject[] fameleRightShoes;
+    public List<GameObject> famelehideWhenRightShoesActivate;
+    LazyValue<float> fameleleftShoes;
+    [SerializeField] GameObject[] fameleLeftShoes;
+    public List<GameObject> famelehideWhenLeftShoesActivate;
 
     private void Awake()
     {
@@ -104,32 +169,6 @@ public class PlayerEquipmentManager : MonoBehaviour, ISaveable
         return GetComponent<BaseStats>().GetStat(Stat.Helmet);
     }
 
-    private void EquipAllEquipmentModelsOnStart()
-     {
-         //Helmet
-         //currentHelmetEquipment = equipment.GetItemInSlot(EquipLocation.Helmet) as HelmetEquipment;
-        // helmetModelChanger.UnEquipAllHelmetModels();
-         if (characterCustomization.currentHelmetEquipment !=null)
-         {
-             helmetModelChanger.EquipHelmetModelByName(characterCustomization.currentHelmetEquipment.helmetModelName);
-         }
-         else
-         {
-             helmetModelChanger.EquipHelmetModelByName(nakedHelmetModel);
-         }
-
-         //Next Pancerz
-        /* torsoModelChanger.UnEquipAllTorsotModels();
-         var torse = equipment.GetItemInSlot(EquipLocation.Trousers) as TorseEquipment;
-         if (torse != null)
-         {
-             torsoModelChanger.EquipTorsoModelByName(characterCustomization.currentTorseEquipment.torseModelName);
-         }
-         else
-         {
-             torsoModelChanger.EquipTorsoModelByName(nakedTorseModel);
-         }*/
-     }
 
    
     public void OpenBlockingColider()
