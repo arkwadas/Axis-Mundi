@@ -11,6 +11,14 @@ namespace RPG.Stats
         TotalTraitPoints,
         BuyingDiscountPercentage,
         Defence,
-        Helmet
+        Helmet,
+        HelmetNoHair,
+        Mask,
+        HelmetDodatek,
+        Torse,
+        Hands,
+        Shoes,
+        Peleryna,
+        Shield
     }
 }
