@@ -17,6 +17,7 @@ namespace RPG.Combat
         [SerializeField] Weapon equippedPrefab = null;
         Equipment equipment;
         [SerializeField] float weaponDamage = 5f;
+        [SerializeField] float weaponMaxDamage = 5f;
         [SerializeField] float percentageBonus = 0;
         [SerializeField] float weaponRange = 2f;
         [SerializeField] bool isRightHanded = true;
@@ -132,6 +133,11 @@ namespace RPG.Combat
             return weaponDamage;
         }
 
+        public float GetMaxDamage()
+        {
+            return weaponMaxDamage;
+        }
+
         public float GetPercentageBonus()
         {
             return percentageBonus;
@@ -149,17 +155,25 @@ namespace RPG.Combat
 
         public IEnumerable<float> GetAdditiveModifiers(Stats.Stat stat)
         {
-            if (stat == Stats.Stat.Damage)
+            if (stat == Stats.Stat.MinDamage)
             {
                 yield return weaponDamage;
+            }
+            if (stat == Stats.Stat.MaxDamage)
+            {
+                yield return weaponMaxDamage;
             }
         }
 
         public IEnumerable<float> GetPercentageModifiers(Stats.Stat stat)
         {
-            if (stat == Stats.Stat.Damage)
+            if (stat == Stats.Stat.MinDamage)
             {
-                yield return percentageBonus;
+                yield return weaponDamage;
+            }
+            if (stat == Stats.Stat.MaxDamage)
+            {
+                yield return weaponMaxDamage;
             }
         }
         /*public float GetWeaponAnimTime(Animator animator)
@@ -175,13 +189,17 @@ namespace RPG.Combat
 
         public IEnumerable<float> GetAdditiveModifier(Stats.Stat stat)
         {
-            if (stat == Stats.Stat.Damage)
+            if (stat == Stats.Stat.MinDamage)
+            {
+                yield return percentageBonus;
+            }
+            if (stat == Stats.Stat.MaxDamage)
             {
                 yield return percentageBonus;
             }
         }
 
-        public IEnumerable<float> GetProcentageModifire(Stats.Stat stat)
+            public IEnumerable<float> GetProcentageModifire(Stats.Stat stat)
         {
             if (stat == Stats.Stat.Health)
             {

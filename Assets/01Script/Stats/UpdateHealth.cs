@@ -15,7 +15,6 @@ namespace RPG.Combat
     {
         
         protected Health _health;
-        BaseStats stats;
         private float regenerationPercentage;
         [SerializeField] TakeDamageEvent takeDamage;
         public UnityEvent onDie;
@@ -27,16 +26,13 @@ namespace RPG.Combat
 
 
         LazyValue<float> healthPoints;
-        float sum;
         bool wasDeadLastFrame = false;
 
         //test
         private void Awake()
         {
-            healthPoints = new LazyValue<float>(GetInitialHealth);
-            //healthPoints = _health;
             _health = GetComponent<Health>();
-            
+            healthPoints = new LazyValue<float>(GetInitialHealth);
         }
 
         private void Update()

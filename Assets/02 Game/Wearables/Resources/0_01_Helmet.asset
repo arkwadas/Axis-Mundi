@@ -28,5 +28,11 @@ MonoBehaviour:
     value: 2
   - stat: 10
     value: 2
+  - stat: 13
+    value: 2
+  - stat: 16
+    value: 2
+  - stat: 15
+    value: 2
   percentageModifiers: []
   helmetModelName: Male_Helmets_01

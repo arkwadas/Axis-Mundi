@@ -5,7 +5,8 @@ namespace RPG.Stats
         Health,
         ExperienceReward,
         ExperienceToLevelUp,
-        Damage,
+        MinDamage,
+        MaxDamage,
         Mana,
         ManaRegenRate,
         TotalTraitPoints,
@@ -19,6 +20,10 @@ namespace RPG.Stats
         Hands,
         Shoes,
         Peleryna,
-        Shield
+        Shield,
+        Shoulder,
+        HipsTorse,
+        Elblow,
+        knee
     }
 }
