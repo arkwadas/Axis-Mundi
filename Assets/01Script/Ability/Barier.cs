@@ -73,33 +73,7 @@ public class Barier : MonoBehaviour
         }
     }
 
-    /* private void OnCollisionEnter(Collision collision)
-     {
-         Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-         ParticleSystem particleEffect = collision.gameObject.GetComponent<ParticleSystem>();
-         if (rb != null)
-         {
-             Vector3 impulse = -collision.impulse / Time.fixedDeltaTime;
-             rb.AddForce(impulse, ForceMode.Impulse);
-         }
-         if (particleEffect != null)
-         {
-             Vector3 particleImpulse = -collision.impulse / Time.fixedDeltaTime;
-             particleEffect.Play();
-             particleEffect.GetComponent<Rigidbody>().AddForce(particleImpulse, ForceMode.Impulse);
-         }
-     }*/
-    /* {
-   // if (isActive && manaScript != null && manaScript.currentMana > 0.0f)
-    //{
-        Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            Vector3 impulse = -collision.impulse / Time.fixedDeltaTime;
-            rb.AddForce(impulse, ForceMode.Impulse);
-        }
-   // }
-}*/
+
 
     public GameObject particleEffect;
 

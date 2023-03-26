@@ -231,9 +231,10 @@ public class PlayerEquipmentManager : MonoBehaviour, ISaveable
 
     private void Start()
     {
-        ActivateHelmet();
-        ActivateTorse();
         // EquipAllEquipmentModelsOnStart();
+        /*ActivateHelmet();
+        ActivateTorse();
+        
         ActivateHands();
         ActivateShoes();
         ActivatePeleryna();
@@ -243,7 +244,7 @@ public class PlayerEquipmentManager : MonoBehaviour, ISaveable
         ActivateShoulder();
         ActivateHipsTorse();
         ActivateElblow();
-        ActivateKnee();
+        ActivateKnee();*/
     }
 
     void SetActive(GameObject[] objects, int index)

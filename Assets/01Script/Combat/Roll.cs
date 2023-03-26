@@ -4,40 +4,71 @@ using UnityEngine;
 
 public class Roll : MonoBehaviour
 {
-    public float rollSpeed = 5f;
-    public Animator anim;
+    public float flipSpeed = 1.0f;
+    public AnimationCurve rotationCurve;
 
-    private bool isRolling = false;
-
-    void Start()
-    {
-        //anim = GetComponent<Animator>();
-    }
+    private enum FlipDirection { Forward, Backward, Left, Right }
+    private Coroutine flipCoroutine;
 
     void Update()
     {
-        ActiveRoll();
-    }
-
-    private void ActiveRoll()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isRolling)
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            isRolling = true;
-            anim.SetTrigger("Roll");
-            StartCoroutine(Rolling());
+            StartFlip(FlipDirection.Forward);
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            StartFlip(FlipDirection.Backward);
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            StartFlip(FlipDirection.Left);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            StartFlip(FlipDirection.Right);
         }
     }
 
-    IEnumerator Rolling()
+    void StartFlip(FlipDirection direction)
     {
-        float time = 0f;
-        while (time < 1f)
+        if (flipCoroutine != null)
         {
-            time += Time.deltaTime * rollSpeed;
-            transform.Translate(Vector3.forward * Time.deltaTime * rollSpeed);
+            StopCoroutine(flipCoroutine);
+        }
+        flipCoroutine = StartCoroutine(Flip(direction));
+    }
+
+    IEnumerator Flip(FlipDirection direction)
+    {
+        float time = 0.0f;
+        Quaternion startRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
+
+        switch (direction)
+        {
+            case FlipDirection.Forward:
+                targetRotation = Quaternion.Euler(-360, 0, 0);
+                break;
+            case FlipDirection.Backward:
+                targetRotation = Quaternion.Euler(360, 0, 0);
+                break;
+            case FlipDirection.Left:
+                targetRotation = Quaternion.Euler(0, 0, 360);
+                break;
+            case FlipDirection.Right:
+                targetRotation = Quaternion.Euler(0, 0, -360);
+                break;
+        }
+
+        while (time < 1.0f)
+        {
+            time += Time.deltaTime * flipSpeed;
+            float curveValue = rotationCurve.Evaluate(time);
+            transform.rotation = Quaternion.Lerp(startRotation, targetRotation, curveValue);
             yield return null;
         }
-        isRolling = false;
+
+        transform.rotation = startRotation;
     }
 }

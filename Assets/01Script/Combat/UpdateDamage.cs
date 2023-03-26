@@ -22,14 +22,14 @@ namespace RPG.Combat
         private void Awake()
         {
 
-            _damage = GetComponent<DamageOnTouch>();
+            //_damage = GetComponent<DamageOnTouch>();
             minDamage = new LazyValue<float>(GetInitialMinDamage);
             maxDamage = new LazyValue<float>(GetInitialMaxDamage);
         }
 
         private void Start()
         {
-            ToSameDamage();
+            //ToSameDamage();
         }
 
         // Update is called once per frame
