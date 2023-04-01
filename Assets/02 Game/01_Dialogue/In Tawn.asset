@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5583152247798382976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c988936b23f5124d8daaa93d3c7a686, type: 3}
+  m_Name: 4fbec1b9-2427-42ef-8bcd-b46f1ab3d678
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: koniec
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 555
+    y: 512
+    width: 200
+    height: 100
+--- !u!114 &-4156358044834624545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c988936b23f5124d8daaa93d3c7a686, type: 3}
+  m_Name: 9d9d5221-ae58-4bd4-a0b6-9c168ab65f09
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Dobrze
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 635
+    y: 342
+    width: 200
+    height: 100
+--- !u!114 &-750477039952269513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c988936b23f5124d8daaa93d3c7a686, type: 3}
+  m_Name: 0eb8ba89-4aa4-4264-8d53-fef1a7d98ca8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: hej
+  children:
+  - a8671480-ae0f-4cc4-8d36-be0b60faaf06
+  - a25ba537-3e91-4b6e-899c-b8af9f936676
+  rect:
+    serializedVersion: 2
+    x: 108
+    y: 151
+    width: 200
+    height: 100
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53e9e03f76d0d644a7896c1681beec4, type: 3}
+  m_Name: In Tawn
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -750477039952269513}
+  - {fileID: 481307423847247955}
+  - {fileID: -5583152247798382976}
+  - {fileID: -4156358044834624545}
+  - {fileID: 8503447011923680628}
+--- !u!114 &481307423847247955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c988936b23f5124d8daaa93d3c7a686, type: 3}
+  m_Name: a8671480-ae0f-4cc4-8d36-be0b60faaf06
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: jak sie masz
+  children:
+  - 4fbec1b9-2427-42ef-8bcd-b46f1ab3d678
+  - 9d9d5221-ae58-4bd4-a0b6-9c168ab65f09
+  rect:
+    serializedVersion: 2
+    x: 297
+    y: 348
+    width: 200
+    height: 100
+--- !u!114 &8503447011923680628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c988936b23f5124d8daaa93d3c7a686, type: 3}
+  m_Name: a25ba537-3e91-4b6e-899c-b8af9f936676
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: koniec
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 506
+    y: 129
+    width: 200
+    height: 100
