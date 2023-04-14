@@ -1,5 +1,9 @@
-using UnityEngine.EventSystems;
+using RPG.Combat;
+using RPG.Core;
 using UnityEngine;
+using System;
+using UnityEngine.EventSystems;
+using UnityEngine.AI;
 using RPG.Control;
 
 public class InteractUI : MonoBehaviour
@@ -14,10 +18,13 @@ public class InteractUI : MonoBehaviour
         public Vector2 hotspot;
     }
     [SerializeField] CursorMapping[] cursorMappings = null; // do kursora
-    [SerializeField] float maxNavMeshProjectionDistance = 1f;
-    [SerializeField] float raycastRadius = 1f;
+    [SerializeField] float maxNavMeshProjectionDistance = 0.3f;
+    [SerializeField] float raycastRadius = 0.3f;
 
     bool isDraggingUI = false;
+    // Dodajemy zmienn¹ do przechowywania bie¿¹cego CursorType
+    private CursorType currentCursorType;
+
 
     private void Update()
     {
@@ -65,5 +72,48 @@ public class InteractUI : MonoBehaviour
         }
         return cursorMappings[0];
     }
-    
+
+    private bool InteractWithComponent()
+    {
+        RaycastHit[] hits = RaycastAllSorted();
+        foreach (RaycastHit hit in hits)
+        {
+            IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
+            foreach (IRaycastable raycastable in raycastables)
+            {
+                if (raycastable.HandleRaycast(this))
+                {
+                    SetCursor(raycastable.GetCursorType());
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    RaycastHit[] RaycastAllSorted()
+    {
+        //Get all hits
+        RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
+        //Sort by distance
+        //build array distances
+        float[] distances = new float[hits.Length];
+        for (int i = 0; i < hits.Length; i++)
+        {
+            distances[i] = hits[i].distance;
+        }
+        //Sort The hits
+        Array.Sort(distances, hits);
+        //Return
+        return hits;
+    }
+
+    private static Ray GetMouseRay()
+    {
+        return Camera.main.ScreenPointToRay(Input.mousePosition);
+    }
+    public CursorType GetCurrentCursorType()
+    {
+        return currentCursorType;
+    }
 }

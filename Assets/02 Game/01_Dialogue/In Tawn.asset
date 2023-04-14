@@ -17,10 +17,12 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 555
-    y: 512
+    x: 560
+    y: 514
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: Attack
 --- !u!114 &-4156358044834624545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,34 +38,15 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   text: Dobrze
   children:
-  - 0af99408-c374-47df-8c06-cf906f2a421d
+  - 42a0bfb8-4f1c-423d-8d50-7a1c50b2a7e7
   rect:
     serializedVersion: 2
-    x: 632
-    y: 344
+    x: 634
+    y: 343
     width: 200
     height: 100
---- !u!114 &-2217330594291763592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c988936b23f5124d8daaa93d3c7a686, type: 3}
-  m_Name: 0af99408-c374-47df-8c06-cf906f2a421d
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: super
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 906
-    y: 289
-    width: 200
-    height: 100
+  onEnterAction: 
+  onExitAction: GiveQuest
 --- !u!114 &-750477039952269513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +69,8 @@ MonoBehaviour:
     y: 148
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +88,7 @@ MonoBehaviour:
   - {fileID: 481307423847247955}
   - {fileID: -5583152247798382976}
   - {fileID: -4156358044834624545}
-  - {fileID: -2217330594291763592}
+  - {fileID: 6792489675977679395}
 --- !u!114 &481307423847247955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,13 +102,38 @@ MonoBehaviour:
   m_Name: a8671480-ae0f-4cc4-8d36-be0b60faaf06
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: jak sie masz
+  text: znajdz mja matke
   children:
   - 4fbec1b9-2427-42ef-8bcd-b46f1ab3d678
   - 9d9d5221-ae58-4bd4-a0b6-9c168ab65f09
   rect:
     serializedVersion: 2
-    x: 297
-    y: 345
+    x: 299
+    y: 341
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6792489675977679395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c988936b23f5124d8daaa93d3c7a686, type: 3}
+  m_Name: 42a0bfb8-4f1c-423d-8d50-7a1c50b2a7e7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ss
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 884
+    y: 343
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 

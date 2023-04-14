@@ -18,6 +18,8 @@ namespace RPG.Control
         [SerializeField] float speedProjectile = 10f;
         [SerializeField] float maxLifeTime = 10f;
         [SerializeField] string sound;
+        // Dodatkowe w³aœciwoœci
+        [SerializeField] InteractUI interactUI;
         //public Animator animator;
 
         private int attackCount = 0;
@@ -85,10 +87,10 @@ namespace RPG.Control
 
         private void Update()
         {
-            
-            AttackStyle();
-
-
+            if (interactUI.GetCurrentCursorType() == RPG.Control.CursorType.None)
+            {
+                AttackStyle();
+            }
         }
 
         private void AttackStyle()

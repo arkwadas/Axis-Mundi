@@ -16,30 +16,29 @@ namespace RPG.UI
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
         [SerializeField] Image characterImage;
+        [SerializeField] Button quitButton;
+        [SerializeField] TextMeshProUGUI conversantName;
 
         // Start is called before the first frame update
         void Start()
         {
             playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
             playerConversant.onConversationUpdated += UpdateUI;
-            nextButton.onClick.AddListener(Next);
+            nextButton.onClick.AddListener(() => playerConversant.Next());
+            quitButton.onClick.AddListener(() => playerConversant.Quit());
 
             UpdateUI();
         }
 
-        // Update is called once per frame
-        void Next()
-        {
-            playerConversant.Next();
-
-        }
-
         void UpdateUI()
         {
+            gameObject.SetActive(playerConversant.IsActive());
             if (!playerConversant.IsActive())
             {
                 return;
             }
+            conversantName.text = playerConversant.GetCurrentConversantName();
+            characterImage = playerConversant.GetCuttentImage();
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
             if (playerConversant.IsChoosing())
@@ -55,7 +54,10 @@ namespace RPG.UI
 
         private void BuildChoiceList()
         {
-            choiceRoot.DetachChildren();
+            foreach(Transform item in choiceRoot)
+            {
+                Destroy(item.gameObject);
+            }
             foreach (DialogueNode choice in playerConversant.GetChoices())
             {
                 GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);

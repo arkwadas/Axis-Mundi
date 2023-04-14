@@ -6,6 +6,9 @@ namespace RPG.Control
         Speak,
         UI,
         Pickup,
+        Dialogue,
+        Quest,
+        Shop
     }
 
 }
