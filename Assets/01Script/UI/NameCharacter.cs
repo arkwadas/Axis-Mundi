@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace RPG.Stat
+namespace RPG.Stats
 {
     public class NameCharacter : MonoBehaviour
     {

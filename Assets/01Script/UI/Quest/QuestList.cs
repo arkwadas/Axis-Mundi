@@ -1,14 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using GameDevTV.Inventories;
 using GameDevTV.Saving;
+using RPG.Core;
+using UnityEngine;
 
 namespace RPG.Quests
 {
-    public class QuestList : MonoBehaviour, ISaveable
+    public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
-    
         List<QuestStatus> statuses = new List<QuestStatus>();
 
         public event Action onUpdate;
@@ -28,6 +29,10 @@ namespace RPG.Quests
         {
             QuestStatus status = GetQuestStatus(quest);
             status.CompleteObjective(objective);
+            if (status.IsComplete())
+            {
+                GiveReward(quest);
+            }
             if (onUpdate != null)
             {
                 onUpdate();
@@ -55,6 +60,19 @@ namespace RPG.Quests
             }
             return null;
         }
+
+        private void GiveReward(Quest quest)
+        {
+            foreach (var reward in quest.GetRewards())
+            {
+                bool success = GetComponent<Inventory>().AddToFirstEmptySlot(reward.item, reward.number);
+                if (!success)
+                {
+                    GetComponent<ItemDropper>().DropItem(reward.item, reward.number);
+                }
+            }
+        }
+
         public object CaptureState()
         {
             List<object> state = new List<object>();
@@ -75,6 +93,19 @@ namespace RPG.Quests
             {
                 statuses.Add(new QuestStatus(objectState));
             }
+        }
+
+        public bool? Evaluate(string predicate, string[] parameters)
+        {
+            switch (predicate)
+            {
+                case "HasQuest":
+                    return HasQuest(Quest.GetByName(parameters[0]));
+                case "CompletedQuest":
+                    return GetQuestStatus(Quest.GetByName(parameters[0])).IsComplete();
+            }
+
+            return null;
         }
     }
 

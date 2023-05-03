@@ -4,7 +4,6 @@ using UnityEngine;
 using RPG.Dialogue;
 using TMPro;
 using UnityEngine.UI;
-
 namespace RPG.UI
 {
     public class DialogueUI : MonoBehaviour
@@ -15,10 +14,8 @@ namespace RPG.UI
         [SerializeField] GameObject AIResponse;
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
-        [SerializeField] Image characterImage;
         [SerializeField] Button quitButton;
         [SerializeField] TextMeshProUGUI conversantName;
-
         // Start is called before the first frame update
         void Start()
         {
@@ -26,10 +23,8 @@ namespace RPG.UI
             playerConversant.onConversationUpdated += UpdateUI;
             nextButton.onClick.AddListener(() => playerConversant.Next());
             quitButton.onClick.AddListener(() => playerConversant.Quit());
-
             UpdateUI();
         }
-
         void UpdateUI()
         {
             gameObject.SetActive(playerConversant.IsActive());
@@ -38,7 +33,6 @@ namespace RPG.UI
                 return;
             }
             conversantName.text = playerConversant.GetCurrentConversantName();
-            characterImage = playerConversant.GetCuttentImage();
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
             if (playerConversant.IsChoosing())
@@ -48,13 +42,13 @@ namespace RPG.UI
             else
             {
                 AIText.text = playerConversant.GetText();
-                nextButton.gameObject.SetActive(playerConversant.HasNext()); 
+                nextButton.gameObject.SetActive(playerConversant.HasNext());
             }
         }
 
         private void BuildChoiceList()
         {
-            foreach(Transform item in choiceRoot)
+            foreach (Transform item in choiceRoot)
             {
                 Destroy(item.gameObject);
             }

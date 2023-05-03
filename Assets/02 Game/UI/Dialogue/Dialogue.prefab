@@ -1144,7 +1144,6 @@ MonoBehaviour:
   choiceRoot: {fileID: 787891473115206086}
   choicePrefab: {fileID: 6266669470617599650, guid: becae2d896137404b994123e370d8a65,
     type: 3}
-  characterImage: {fileID: 787891471849241289}
   quitButton: {fileID: 787891473263037848}
   conversantName: {fileID: 787891472802089402}
 --- !u!1 &787891473533026835

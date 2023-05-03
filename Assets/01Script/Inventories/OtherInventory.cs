@@ -7,19 +7,33 @@ namespace GameDevTV.Inventories
     [RequireComponent(typeof(Inventory))]
     public class OtherInventory : MonoBehaviour
     {
-        [SerializeField] GameObject player;
-        public GameObject pickupIcon;
-        [SerializeField] float interactDistance = 3f;
-        public GameObject[] Disable;
+        private GameObject player;
+        [SerializeField] float interactDistance = 4f;
+        private float initialColliderRadius; // Dodane
+        //public GameObject[] Disable;
+        public CapsuleCollider coliderSize = null;
+        public GameObject uI;
 
         private bool isPlayerInRange = false;
+
+        private void Awake()
+        {
+            coliderSize = GetComponent<CapsuleCollider>(); // Dodane
+            initialColliderRadius = coliderSize.radius; // Dodane
+            player = GameObject.FindWithTag("Player");
+        }
+
+        private void Start()
+        {
+            uI = GameObject.Find("Hiding Panel");
+        }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject == player)
             {
                 isPlayerInRange = true;
-                pickupIcon.SetActive(true);
+                //pickupIcon.SetActive(true);
             }
         }
 
@@ -28,7 +42,8 @@ namespace GameDevTV.Inventories
             if (other.gameObject == player)
             {
                 isPlayerInRange = false;
-                pickupIcon.SetActive(false);
+                //pickupIcon.SetActive(false);
+                uI.SetActive(false);
             }
         }
 
@@ -42,6 +57,15 @@ namespace GameDevTV.Inventories
                     FindObjectOfType<ShowHideUI>().ShowOtherInventory(gameObject);
                 }
             }
+        }
+        public void SetNpcColliderRadius(float radius)
+        {
+            coliderSize.radius = radius;
+        }
+
+        public void ResetNpcColliderRadius()
+        {
+            coliderSize.radius = initialColliderRadius;
         }
     }
 }

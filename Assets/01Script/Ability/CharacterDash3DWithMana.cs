@@ -1,6 +1,7 @@
 using MoreMountains.Tools;
 using MoreMountains.TopDownEngine;
 using RPG.Combat;
+using System.Collections;
 using UnityEngine;
 
 public class CharacterDash3DWithMana : CharacterDash3D
@@ -32,5 +33,6 @@ public class CharacterDash3DWithMana : CharacterDash3D
                 return;
             }
         }
+
     }
 }
