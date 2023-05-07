@@ -17,7 +17,14 @@ namespace RPG.Stats
         BaseStats baseStats;
         public event Action onExperienceGained;
 
-        
+        private void Update()
+        {
+            if (Input.GetKey(KeyCode.L))
+            {
+                GainExperience(Time.deltaTime * 1000);
+            }
+        }
+
         public void GainExperience(float experience)
         {
             experiencePoint += experience;
