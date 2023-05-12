@@ -27,7 +27,7 @@ namespace MoreMountains.Tools
         [SerializeField] int startingLevel = 1;
         public CharacterClass characterClass;
         public Progression progression = null;
-        [SerializeField] GameObject levelUpParticle = null; // WYWO£ANIE EFFEKTU!!! PONI¯EJ METODA I WYWO£ANIE DO NIEGO
+         // WYWO£ANIE EFFEKTU!!! PONI¯EJ METODA I WYWO£ANIE DO NIEGO
         [SerializeField] bool shouldUseModifires = false;
 
 
@@ -85,16 +85,13 @@ namespace MoreMountains.Tools
             if (newLevel > currentLevel.value)
             {
                 currentLevel.value = newLevel;
-                LevelUpEffect(); // WYWO£ANIE W UPDACIE LEVELU ALE TAK SMAO MO¯E BYÆ DO UFERZENIA!
+                //LevelUpEffect(); // WYWO£ANIE W UPDACIE LEVELU ALE TAK SMAO MO¯E BYÆ DO UFERZENIA!
                 onLevelUp(); // metoda która da wszystko co daje level up
             }
 
         }
 
-        private void LevelUpEffect()    // METODA WYTWORZENIA EFEKTU W  EMPTY OBIEKCIE + PARTICLE WEWNATRZ NEIGO
-        { // Aktuala instacja sprawia ¿e efetkza obiektem pod¹¿a
-            Instantiate(levelUpParticle, transform);    // Instantiate pozwala np okreœliæ pozycje wywo³ania efektu, mo¿na to ustawiæ an hit Effect
-        }
+        
 
         
         public float GetStat(Stat stat)

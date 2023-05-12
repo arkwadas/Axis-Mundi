@@ -9,16 +9,14 @@ TagManager:
   - Enemy
   - World
   - NoMask
-  - Portal
-  - Projectile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Outline
+  - 
   - Water
   - UI
-  - PostProcessing
+  - 
   - 
   - Obstacles
   - Ground

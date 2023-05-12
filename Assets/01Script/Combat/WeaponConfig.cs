@@ -28,9 +28,6 @@ namespace RPG.Combat
 
         [SerializeField] int newId;
 
-
-        float damage = 5;
-
         const string weaponName = "Weapon";
 
         private void Awake()

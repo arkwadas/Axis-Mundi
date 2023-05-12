@@ -29,12 +29,14 @@ public class InteractUI : MonoBehaviour
     private void Update()
     {
         if (InteractWithUI()) return;
+       
     }
 
     private bool InteractWithUI()
     {
         if (Input.GetMouseButtonDown(0))
-            isDraggingUI = false;
+            SetCursor(CursorType.None);
+        isDraggingUI = false;
         if (EventSystem.current.IsPointerOverGameObject())
         {
             if (Input.GetMouseButtonDown(0))
@@ -46,7 +48,7 @@ public class InteractUI : MonoBehaviour
         }
         if (isDraggingUI)
         {
-           return true;
+            return true;
         }
         if(!isDraggingUI)
         {

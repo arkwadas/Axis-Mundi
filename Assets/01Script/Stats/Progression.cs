@@ -19,30 +19,19 @@ namespace RPG.Stats
 
             float[] levels = lookupTable[characterClass][stat];
 
-            if (levels.Length < level)
+            /*if (levels.Length < level)
             {
                 return 0;
             }
 
-            return levels[level - 1];
-            
-
-            //Stary system liczenia progresji - zasobo¿erny
-            /*foreach (ProgressionCharakterClass progressionClass in characterClasses)
+            return levels[level - 1];*/
+            if (level <= 0 || levels.Length < level)
             {
-                if (progressionClass.characterClass != characterClass) continue;
-
-                foreach (ProgressionStat progressionStat in progressionClass.stats)
-                {
-                    if (progressionStat.stat != stat) continue;
-
-                    if (progressionStat.levels.Length < level) continue;
-
-                    return progressionStat.levels[level - 1];
-                }
-                
+                return 0;
             }
-            return 0;*/
+            return levels[level - 1];
+
+
         }
 
         public int GetLevels(Stat stat, CharacterClass characterClass)

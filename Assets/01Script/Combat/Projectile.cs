@@ -24,34 +24,13 @@ namespace RPG.Combat
 
 
         [SerializeField] private Rigidbody rb;
-        private WeaponConfig weaponConfig;
 
-        private void Awake()
-        {
-            //  rb = GetComponent<Rigidbody>();
-            // weaponConfig = GetComponentInParent<WeaponConfig>();
-        }
 
-        private void Start()
-        {
-            // transform.LookAt(GetAimLocation());
-            // Init(targetPoint);
-        }
 
         private void Update()
         {
-            //Init(targetPoint);
-            //Init(targetPoint);
+
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            //if (target == null) return;
-
-            //if (isHoming /*&& !target.IsDead()*/)
-            //{
-            //  transform.LookAt(GetAimLocation());
-            //}
-
-            //transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            //Init(targetPoint);
 
 
         }
@@ -88,8 +67,7 @@ namespace RPG.Combat
         }
         private void OnTriggerEnter(Collider other)
         {
-            //Collider damageOnTouch = GetComponent<Collider>();
-            //if (!other.GetComponent<Health>() != target) return;
+
              if (other.CompareTag("Enemy"))
             {
                 Instantiate(hitEffectEnemy, transform.position, transform.rotation);
@@ -97,10 +75,6 @@ namespace RPG.Combat
                 Invoke("DestroyHitEffectEnemy", 5.0f);
                 Destroy(gameObject, 0.01f);
             }
-            //if (target.CurrentHealth == 0) return;
-            //damageOnTouch.(instigator, damage);
-            //FindObjectOfType<AudioManager>().Play(soundHit);
-            //speed = 0; // redukuje speed do 0, orzez co nie leca dalej pociski, ale nie wiem co z odbijaniem
 
             onHit.Invoke();
 

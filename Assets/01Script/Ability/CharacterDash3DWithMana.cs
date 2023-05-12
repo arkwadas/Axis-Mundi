@@ -7,7 +7,7 @@ using UnityEngine;
 public class CharacterDash3DWithMana : CharacterDash3D
 {
     [Header("Mana")]
-    public ManaScript manaScript;
+    public Mana manaScript;
     public float manaCost;
 
     protected override void HandleInput()

@@ -11,7 +11,7 @@ public class Barier : MonoBehaviour
     public float manaCostPerSecond = 20.0f;
     public float manaCost;
 
-    public ManaScript manaScript;
+    public Mana manaScript;
     private bool isActive = false;
     [SerializeField] string sound;
 

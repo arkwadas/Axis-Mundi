@@ -18,9 +18,9 @@ namespace RPG.Control
         [SerializeField] float speedProjectile = 10f;
         [SerializeField] float maxLifeTime = 10f;
         [SerializeField] string sound;
-        // Dodatkowe w³aœciwoœci
+
         [SerializeField] InteractUI interactUI;
-        //public Animator animator;
+
 
         private int attackCount = 0;
         private float timeSinceSecondAttack = Mathf.Infinity;
@@ -30,8 +30,6 @@ namespace RPG.Control
         float timeFinishAttack = Mathf.Infinity;
         bool canMove = true;
         bool canAttack = true;
-        float damage = 1f;
-        float mana = 10;
 
         public GameObject bullet;
         public Transform firePoint;
@@ -40,25 +38,20 @@ namespace RPG.Control
         [SerializeField] float fireForce = 10;
 
         Equipment equipment;
-        Equipment equipmentHelmet;
         Equipment equipmentWeapon;
         WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon; //link do broni
-        SpawnProjectile spawnProjectile;
-       // GameObject Projectile;
-        Vector3 target;
-        Transform target2;
 
-        Projectile projectile;
-        ManaScript myMana;
+        // INTEGRACJA Z ACTION INVENTORY
+        ActionStore actionStore;
+        [SerializeField] int numberOfAbilities = 6;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
             currentWeaponConfig = defaultWeapon;
             currentWeapon = new LazyValue<Weapon>(SetDefulyWeapon);
-            //equipment = GetComponent<Equipment>();
-            //equipmentHelmet = equipment;
+
             equipment = GetComponent<Equipment>();
 
             equipmentWeapon = equipment;
@@ -66,10 +59,9 @@ namespace RPG.Control
              {
                 equipmentWeapon.equipmentUpdated += UpdateWeapon;
             }
-            /*if (equipmentHelmet)
-            {
-                equipmentHelmet.equipmentUpdated += UpdateHelmet;
-            }*/
+
+            //ACTION INVENTORY
+            actionStore = GetComponent<ActionStore>();
         }
 
 
@@ -79,8 +71,8 @@ namespace RPG.Control
         {
             Projectile projectile = GetComponent<Projectile>();
             currentWeapon.ForceInit();
-            TestAim aim = GetComponent<TestAim>();
-            ManaScript manaScript = GetComponent<ManaScript>();
+            //TestAim aim = GetComponent<TestAim>();
+            Mana manaScript = GetComponent<Mana>();
             
         }
 
@@ -91,6 +83,9 @@ namespace RPG.Control
             {
                 AttackStyle();
             }
+
+            //ACTION INVENTORY
+            UseAbilities();
         }
 
         private void AttackStyle()
@@ -200,9 +195,6 @@ namespace RPG.Control
         private void AttackShotBehavior()
         {
 
-            /*Animator animator = GetComponent<Animator>();
-            animator.SetTrigger(animation);*/
-
             if (currentWeaponConfig.HasProjectile())
             {
 
@@ -214,12 +206,9 @@ namespace RPG.Control
 
         private void Shot()
         {
-            TestAim aim = GetComponent<TestAim>();
-            aim.Aim();
+            //TestAim aim = GetComponent<TestAim>();
+           // aim.Aim();
             Fire();
-            //myMana.ReduceMana(mana);
-
-
         }
 
         public void ShotProjectile()
@@ -265,6 +254,10 @@ namespace RPG.Control
 
             return ray.origin + ray.direction * attackRadius;
         }
+        public CursorType GetCursorType()
+        {
+            return CursorType.None;
+        }
 
         private void EnableMovement()
         {
@@ -288,6 +281,35 @@ namespace RPG.Control
             projectile.GetComponent<Rigidbody>().AddForce(firePoint.up  * fireForce, ForceMode.Impulse);
         }
 
+        private void UseAbilities()
+        {
+            for (int i = 0; i < numberOfAbilities; i++)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                {
+                    actionStore.Use(i, gameObject);
+                }
+            }
+        }
+
+        // ability
+        public static Ray GetMouseRay()
+        {
+            return Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
+
+        public Transform GetHandTransform(bool isRightHand)
+        {
+            if (isRightHand)
+            {
+                return rightHandTransform;
+            }
+            else
+            {
+                return leftHandTransform;
+            }
+        }
+
         public object CaptureState()
         {
             return currentWeaponConfig.name;
@@ -299,8 +321,6 @@ namespace RPG.Control
             WeaponConfig weapon = UnityEngine.Resources.Load<WeaponConfig>(weaponName);
             EquippWeapon(weapon);
         }
-
-        
     }
    
 }

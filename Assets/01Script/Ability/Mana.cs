@@ -10,7 +10,7 @@ namespace RPG.Combat
    
 {
 
-public class ManaScript : MonoBehaviour, ISaveable
+public class Mana : MonoBehaviour, ISaveable
     {
         public Image manaBar = null;
         [SerializeField] TextMeshProUGUI manaText = null;

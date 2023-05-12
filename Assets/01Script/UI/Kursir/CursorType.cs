@@ -8,7 +8,9 @@ namespace RPG.Control
         Pickup,
         Dialogue,
         Quest,
-        Shop
+        Shop,
+        Enemy,
+        Ground
     }
 
 }

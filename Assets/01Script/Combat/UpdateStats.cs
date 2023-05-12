@@ -1,49 +1,74 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using RPG.Stats;
-using MoreMountains.TopDownEngine;
 using MoreMountains.Tools;
-using RPG.Combat;
-using GameDevTV.Utils;
 
 public class UpdateStats : MonoBehaviour
 {
-    /*protected ManaScript manaScript;
-    BaseStats stats;
-    private float regenerationPercentage;
+    [SerializeField] private Image experienceBar;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] GameObject levelUpParticle = null;
 
-//    LazyValue<float> healthPoints;
+     private Experience experience;
+     private BaseStats baseStats;
+    private int lastLevel = -1;
 
-    //test
-    void Start()
-    {
-        stats = GetComponent<BaseStats>();
-        GetMana();
+    private void Awake()
+     {
+         experience = GetComponent<Experience>();
+         baseStats = GetComponent<BaseStats>();
+        lastLevel = baseStats.CalculateLevel();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        UpdatesMana();
-    }
+     private void Update()
+     {
+         UpdateExperienceUI();
+     }
 
-    public void UpdatesMana()
-    {
-        manaScript = GetComponent<ManaScript>();
-        float manaValue = stats.GetBaseStat(Stat.Mana);
-        // manaScript.currentMana = manaValue;
-        manaScript.maxMana = manaValue;
+     private void UpdateExperienceUI()
+     {
+         float currentXP = experience.GetPoints();
+         int currentLevel = baseStats.CalculateLevel();
 
-        // Sprawdzenie, czy aktualna wartoœæ zdrowia jest wiêksza od maksymalnej
-        if (manaScript.currentMana > manaScript.maxMana)
+        // Je¿eli poziom gracza wzrós³ od ostatniego sprawdzenia
+        if (lastLevel != currentLevel)
         {
-            manaScript.currentMana = manaScript.maxMana;
+            lastLevel = currentLevel; // aktualizujemy ostatni poziom
+            LevelUpEffect(); // wywo³ujemy efekt podniesienia poziomu
         }
-    }
-    public void GetMana()
+
+        // Obliczanie doœwiadczenia wymaganego do osi¹gniêcia obecnego poziomu
+        float XPForCurrentLevel = baseStats.progression.GetStat(Stat.ExperienceToLevelUp, baseStats.characterClass, currentLevel - 1);
+
+         // Obliczanie doœwiadczenia zdobytego w bie¿¹cym poziomie
+         float XPInCurrentLevel = currentXP - XPForCurrentLevel;
+
+         // Obliczanie doœwiadczenia wymaganego do osi¹gniêcia nastêpnego poziomu
+         float XPToLevelUP = baseStats.progression.GetStat(Stat.ExperienceToLevelUp, baseStats.characterClass, currentLevel);
+
+         float XPPercent;
+
+         if (XPForCurrentLevel < XPToLevelUP) // Gracz nie osi¹gn¹³ jeszcze maksymalnego poziomu
+         {
+             // Obliczanie procentowego wype³nienia paska doœwiadczenia
+             XPPercent = XPInCurrentLevel / (XPToLevelUP - XPForCurrentLevel);
+          
+         }
+         else // Gracz osi¹gn¹³ maksymalny poziom
+         {
+             XPPercent = 1; // Pasek doœwiadczenia powinien byæ w pe³ni wype³niony
+         }
+
+         // Aktualizacja paska doœwiadczenia
+         experienceBar.fillAmount = XPPercent;
+
+         // Aktualizacja tekstu poziomu
+         levelText.text = "" + currentLevel;
+     }
+    private void LevelUpEffect()    // METODA WYTWORZENIA EFEKTU W  EMPTY OBIEKCIE + PARTICLE WEWNATRZ NEIGO
     {
-        manaScript = GetComponent<ManaScript>();
-        float manaValue = stats.GetBaseStat(Stat.Mana);
-        manaScript.currentMana = manaValue;
-        manaScript.maxMana = manaValue;
-    }*/
+        GameObject effectInstance = Instantiate(levelUpParticle, transform);
+        Destroy(effectInstance, 5f); // Zniszczenie obiektu po 5 sekundach
+    }
 }
