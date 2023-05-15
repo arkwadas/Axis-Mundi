@@ -19,11 +19,11 @@ namespace RPG.Abilities.Targeting
 
         public override void StartTargeting(AbilityData data, Action finished)
         {
-            Attack playerController = data.GetUser().GetComponent<Attack>();
+            InteractUI playerController = data.GetUser().GetComponent<InteractUI>();
             playerController.StartCoroutine(Targeting(data, playerController, finished));
         }
 
-        private IEnumerator Targeting(AbilityData data, Attack playerController, Action finished)
+        private IEnumerator Targeting(AbilityData data, InteractUI playerController, Action finished)
         {
             playerController.enabled = false;
             if (targetingPrefabInstance == null)

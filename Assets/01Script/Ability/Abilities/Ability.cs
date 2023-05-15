@@ -35,7 +35,7 @@ namespace RPG.Abilities
             ActionScheduler actionScheduler = user.GetComponent<ActionScheduler>();
             actionScheduler.StartAction(data);
 
-            targetingStrategy.StartTargeting(data, 
+            targetingStrategy.StartTargeting(data,
                 () => {
                     TargetAquired(data);
                 });

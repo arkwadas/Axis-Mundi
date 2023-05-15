@@ -42,9 +42,7 @@ namespace RPG.Control
         WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon; //link do broni
 
-        // INTEGRACJA Z ACTION INVENTORY
-        ActionStore actionStore;
-        [SerializeField] int numberOfAbilities = 6;
+        
 
         private void Awake()
         {
@@ -59,9 +57,6 @@ namespace RPG.Control
              {
                 equipmentWeapon.equipmentUpdated += UpdateWeapon;
             }
-
-            //ACTION INVENTORY
-            actionStore = GetComponent<ActionStore>();
         }
 
 
@@ -84,8 +79,7 @@ namespace RPG.Control
                 AttackStyle();
             }
 
-            //ACTION INVENTORY
-            UseAbilities();
+            
         }
 
         private void AttackStyle()
@@ -281,16 +275,7 @@ namespace RPG.Control
             projectile.GetComponent<Rigidbody>().AddForce(firePoint.up  * fireForce, ForceMode.Impulse);
         }
 
-        private void UseAbilities()
-        {
-            for (int i = 0; i < numberOfAbilities; i++)
-            {
-                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-                {
-                    actionStore.Use(i, gameObject);
-                }
-            }
-        }
+
 
         // ability
         public static Ray GetMouseRay()

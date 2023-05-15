@@ -10,7 +10,8 @@ namespace RPG.Abilities
         Dictionary<InventoryItem, float> cooldownTimers = new Dictionary<InventoryItem, float>();
         Dictionary<InventoryItem, float> initialCooldownTimes = new Dictionary<InventoryItem, float>();
 
-        void Update() {
+        void Update()
+        {
             var keys = new List<InventoryItem>(cooldownTimers.Keys);
             foreach (InventoryItem ability in keys)
             {

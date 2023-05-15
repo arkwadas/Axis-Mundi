@@ -5,6 +5,7 @@ using System;
 using UnityEngine.EventSystems;
 using UnityEngine.AI;
 using RPG.Control;
+using GameDevTV.Inventories;
 
 public class InteractUI : MonoBehaviour
 {
@@ -21,17 +22,38 @@ public class InteractUI : MonoBehaviour
     [SerializeField] float maxNavMeshProjectionDistance = 0.3f;
     [SerializeField] float raycastRadius = 0.3f;
 
+    // INTEGRACJA Z ACTION INVENTORY
+    ActionStore actionStore;
+    [SerializeField] int numberOfAbilities = 6;
+
     bool isDraggingUI = false;
     // Dodajemy zmienn¹ do przechowywania bie¿¹cego CursorType
     private CursorType currentCursorType;
 
+    private void Awake()
+    {
+        //ACTION INVENTORY
+        actionStore = GetComponent<ActionStore>();
+    }
 
     private void Update()
     {
         if (InteractWithUI()) return;
-       
+        //ACTION INVENTORY
+        UseAbilities();
     }
 
+
+    private void UseAbilities()
+    {
+        for (int i = 0; i < numberOfAbilities; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+            {
+                actionStore.Use(i, gameObject);
+            }
+        }
+    }
     private bool InteractWithUI()
     {
         if (Input.GetMouseButtonDown(0))
