@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4c5cf61e711b2419a7236fb448b4ff, type: 3}
   m_Name: Blast Effect
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 4346020420726312, guid: b216287c7b0df214682d7ed3030d9e99,
+  prefabToSpawn: {fileID: 4020996693717984, guid: 6a1d8e2021f7e4b4b9fc56f2530059ac,
     type: 3}
   destroyDelay: 5
+  minDamage: 5
+  maxDamage: 25

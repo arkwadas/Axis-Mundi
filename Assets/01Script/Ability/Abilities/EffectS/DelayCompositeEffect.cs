@@ -23,7 +23,10 @@ namespace RPG.Abilities.Effects
             if (abortIfCancelled && data.IsCancelled()) yield break;
             foreach (var effect in delayedEffects)
             {
-                effect.StartEffect(data, finished);
+                if (effect != null)
+                {
+                    effect.StartEffect(data, finished);
+                }
             }
         }
     }

@@ -1,3 +1,4 @@
+using MoreMountains.TopDownEngine;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -9,11 +10,39 @@ namespace RPG.Abilities.Effects
     {
         [SerializeField] Transform prefabToSpawn;
         [SerializeField] float destroyDelay = -1;
+        [SerializeField] float minDamage;
+        [SerializeField] float maxDamage;
 
         public override void StartEffect(AbilityData data, Action finished)
         {
             data.StartCoroutine(Effect(data, finished));
         }
+
+        private IEnumerator Effect(AbilityData data, Action finished)
+        {
+            Transform instance = Instantiate(prefabToSpawn);
+            instance.position = data.GetTargetedPoint2();
+
+            // Set damage
+            DamageOnTouch damageScript = instance.GetComponent<DamageOnTouch>();
+            if (damageScript != null)
+            {
+                damageScript.MinDamageCaused = minDamage;
+                damageScript.MaxDamageCaused = maxDamage;
+            }
+
+            if (destroyDelay > 0)
+            {
+                yield return new WaitForSeconds(destroyDelay);
+                Destroy(instance.gameObject);
+            }
+            finished();
+        }
+
+        /*public override void StartEffect(AbilityData data, Action finished)
+         {
+             data.StartCoroutine(Effect(data, finished));
+         }
 
         private IEnumerator Effect(AbilityData data, Action finished)
         {
@@ -25,6 +54,7 @@ namespace RPG.Abilities.Effects
                 Destroy(instance.gameObject);
             }
             finished();
-        }
+        }*/
+
     }
 }

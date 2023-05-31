@@ -19,7 +19,7 @@ public class AbilityData : IAction
         this.user = user;
     }
 
-    public IEnumerable<GameObject> GetTargets()
+        public IEnumerable<GameObject> GetTargets()
     {
         return targets;
     }

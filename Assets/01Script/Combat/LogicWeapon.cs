@@ -12,6 +12,7 @@ public class LogicWeapon : MonoBehaviour
         foreach (GameObject obj in weaponLogic)
         {
             obj.SetActive(true);
+            StartCoroutine(DisableWeaponsWithDelay(0.5f));
         }
     }
 
@@ -30,5 +31,13 @@ public class LogicWeapon : MonoBehaviour
     public void DisableSecendWeapon()
     {
         secendWeaponsLogic.SetActive(false);
+    }
+    private IEnumerator DisableWeaponsWithDelay(float delay)
+    {
+        foreach (GameObject obj in weaponLogic)
+        {
+            yield return new WaitForSeconds(delay);
+            obj.SetActive(false);
+        }
     }
 }
