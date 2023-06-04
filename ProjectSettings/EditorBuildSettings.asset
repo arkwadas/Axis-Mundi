@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/000_Menu.unity
     guid: 746f300eb98ccd3478fb01716b39104f
+  - enabled: 1
+    path: Assets/Scenes/00_CharakterCreator.unity
+    guid: 5727fc75df7627d41ba23753898e63ae
   - enabled: 0
     path: Assets/TopDownEngine/Demos/StartScreen/StartScreen.unity
     guid: 52360e1567e3fee418407abdfd132d73

@@ -17,11 +17,14 @@ namespace RPG.SceneManagement
 
         public void ContinueGame()
         {
+            if (!PlayerPrefs.HasKey(currentSaveKey)) return;
+            if (!GetComponent<SavingSystem>().SaveFileExist(GetCurrentSave())) return;
             StartCoroutine(LoadLastScene());
         }
 
         public void NewGame(string saveFile)
         {
+            if (!String.IsNullOrEmpty(saveFile)) return;
             SetCurrentSave(saveFile);
             StartCoroutine(LoadFirstScene());
         }
@@ -73,7 +76,7 @@ namespace RPG.SceneManagement
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 Save();
             }
