@@ -18,10 +18,15 @@ public class UpdateStats : MonoBehaviour
      {
          experience = GetComponent<Experience>();
          baseStats = GetComponent<BaseStats>();
-        lastLevel = baseStats.CalculateLevel();
+        //lastLevel = baseStats.CalculateLevel();
     }
 
-     private void Update()
+    private void Start()
+    {
+        
+    }
+
+    private void Update()
      {
          UpdateExperienceUI();
      }

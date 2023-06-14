@@ -80,7 +80,7 @@ namespace RPG.SceneManagement
             {
                 Save();
             }
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.O))
             {
                 Load();
             }

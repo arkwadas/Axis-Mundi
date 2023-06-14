@@ -11,13 +11,14 @@ using GameDevTV.Saving;
 
 namespace RPG.Combat
 {
-    public class UpdateDamage : MonoBehaviour, ISaveable
+    public class UpdateDamage : MonoBehaviour//, ISaveable
     {
         public GameObject playerCharacter;
         public GameObject targetObject;
         public DamageOnTouch _damage;
         LazyValue<float> minDamage;
         LazyValue<float> maxDamage;
+        DamageOnTouch damageComponen;
 
         private void Awake()
         {
@@ -52,21 +53,42 @@ namespace RPG.Combat
         public void ToSameDamage()
         {
             _damage = targetObject.GetComponent<DamageOnTouch>();
+            float defence = playerCharacter.GetComponent<BaseStats>().GetStat(Stats.Stat.Defence); 
             minDamage.value = playerCharacter.GetComponent<BaseStats>().GetStat(Stats.Stat.MinDamage);
             maxDamage.value = playerCharacter.GetComponent<BaseStats>().GetStat(Stats.Stat.MaxDamage);
             _damage.MinDamageCaused = minDamage.value;
+            minDamage.value /= 1 + defence / minDamage.value;
             _damage.MaxDamageCaused = maxDamage.value;
+            maxDamage.value /= 1 + defence / maxDamage.value;
         }
-
-
-        public object CaptureState()
+        private void OnCollisionEnter(Collision collision)
         {
-            throw new System.NotImplementedException();
+            GameObject targetObject = collision.gameObject;
+            DamageOnTouch damageComponent = targetObject.GetComponent<DamageOnTouch>();
+
+            if (damageComponent != null)
+            {
+                float defence = playerCharacter.GetComponent<BaseStats>().GetStat(Stats.Stat.Defence);
+                float minDamage = playerCharacter.GetComponent<BaseStats>().GetStat(Stats.Stat.MinDamage);
+                float maxDamage = playerCharacter.GetComponent<BaseStats>().GetStat(Stats.Stat.MaxDamage);
+
+                damageComponent.MinDamageCaused = minDamage;
+                damageComponent.MaxDamageCaused = maxDamage;
+
+                // Zmiana ataku na podstawie obrony gracza
+                minDamage /= 1 + defence / minDamage;
+                maxDamage /= 1 + defence / maxDamage;
+            }
         }
 
-        public void RestoreState(object state)
-        {
-            throw new System.NotImplementedException();
-        }
+        /* public object CaptureState()
+         {
+             throw new System.NotImplementedException();
+         }
+
+         public void RestoreState(object state)
+         {
+             throw new System.NotImplementedException();
+         }*/
     }
 }

@@ -1,5 +1,6 @@
 using RPG.Audio;
 using RPG.Combat;
+using RPG.Stats;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,6 +1,7 @@
 using MoreMountains.Tools;
 using MoreMountains.TopDownEngine;
 using RPG.Combat;
+using RPG.Stats;
 using System.Collections;
 using UnityEngine;
 

@@ -3,6 +3,7 @@ using GameDevTV.Inventories;
 //using RPG.Attributes;
 using RPG.Combat;
 using RPG.Core;
+using RPG.Stats;
 using UnityEngine;
 
 namespace RPG.Abilities

@@ -14,7 +14,7 @@ namespace RPG.UI
 
             if (playerPurse != null)
             {
-                playerPurse.onChange += RefreshUI;
+                playerPurse.OnChange += RefreshUI;
             }
 
             RefreshUI();

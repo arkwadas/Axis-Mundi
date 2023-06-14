@@ -51,23 +51,14 @@ namespace MoreMountains.Tools
         private void Start()
         {
             currentLevel.ForceInit();
-            //GetHealth();
         }
 
-        private void Update()
-        {
-            //currentLevel.ForceInit(); //dla lazy value
 
-            //UpdateHealth();
-            // SetActiveHelmet();
-
-
-        }
         private void OnEnable()
         {
             if (experience != null)
             {
-                experience.onExperienceGained += UpdateLevel;
+                experience.OnExperienceGained += UpdateLevel;
             }
         }
 
@@ -75,7 +66,7 @@ namespace MoreMountains.Tools
         {
             if (experience != null)
             {
-                experience.onExperienceGained -= UpdateLevel;
+                experience.OnExperienceGained -= UpdateLevel;
             }
         }
 
@@ -86,7 +77,11 @@ namespace MoreMountains.Tools
             {
                 currentLevel.value = newLevel;
                 //LevelUpEffect(); // WYWO£ANIE W UPDACIE LEVELU ALE TAK SMAO MO¯E BYÆ DO UFERZENIA!
-                onLevelUp(); // metoda która da wszystko co daje level up
+
+                if (onLevelUp != null)
+                {
+                    onLevelUp();
+                }
             }
 
         }
@@ -150,18 +145,13 @@ namespace MoreMountains.Tools
 
             if (experience == null) return startingLevel;
 
-            float currentXP = GetComponent<Experience>().GetPoints();
+            float currentXP = experience.GetPoints();
             int penultimateLevel = progression.GetLevels(Stat.ExperienceToLevelUp, characterClass);
             for (int level = 1; level <= penultimateLevel; level++)
             {
                 float XPToLevelUP = progression.GetStat(Stat.ExperienceToLevelUp, characterClass, level);
                 if (XPToLevelUP > currentXP)
                 {
-                    return level;
-                }
-                if (XPToLevelUP > currentXP)
-                {
-                   
                     return level;
                 }
             }

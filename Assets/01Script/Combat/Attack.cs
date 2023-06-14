@@ -6,6 +6,10 @@ using GameDevTV.Inventories;
 using GameDevTV.Saving;
 using RPG.Audio;
 using System.Collections.Generic;
+using UnityEngine.AI;
+using RPG.Core;
+using RPG.Stats;
+using UnityEngine.EventSystems;
 
 namespace RPG.Control
 {
@@ -20,6 +24,8 @@ namespace RPG.Control
         [SerializeField] string sound;
 
         [SerializeField] InteractUI interactUI;
+
+        NavMeshAgent navMeshAgent;
 
 
         private int attackCount = 0;
@@ -76,7 +82,10 @@ namespace RPG.Control
         {
             if (interactUI.GetCurrentCursorType() == RPG.Control.CursorType.None)
             {
-                AttackStyle();
+                if (!EventSystem.current.IsPointerOverGameObject())
+                {
+                    AttackStyle();
+                }
             }
 
             
@@ -295,17 +304,70 @@ namespace RPG.Control
             }
         }
 
-        public object CaptureState()
+        /*public object CaptureState()
         {
             return currentWeaponConfig.name;
+            //miejsce
+            return new SerializableVector3(transform.position);
+        }*/
+       
+        // Klasa PlayerState przechowuj¹ca nazwê broni i pozycjê gracza
+        [System.Serializable]
+        public class PlayerState
+        {
+            public string weaponName;
+            public SerializableVector3 playerPosition;
+
+            public PlayerState(string weaponName, SerializableVector3 playerPosition)
+            {
+                this.weaponName = weaponName;
+                this.playerPosition = playerPosition;
+            }
+        }
+
+        public object CaptureState()
+        {
+            // Zapisuje nazwê aktualnej broni
+            string weaponName = currentWeaponConfig.name;
+
+            // Zapisuje pozycjê gracza
+            SerializableVector3 playerPosition = new SerializableVector3(transform.position);
+
+            // Tworzy obiekt przechowuj¹cy nazwê broni i pozycjê gracza
+            PlayerState state = new PlayerState(weaponName, playerPosition);
+
+            // Zwraca ten obiekt
+            return state;
         }
 
         public void RestoreState(object state)
         {
+            // Pobiera obiekt PlayerState zapisany wczeœniej
+            PlayerState playerState = (PlayerState)state;
+
+            // Wczytuje nazwê broni i wyposa¿a gracza w odpowiedni¹ broñ
+            string weaponName = playerState.weaponName;
+            WeaponConfig weapon = UnityEngine.Resources.Load<WeaponConfig>(weaponName);
+            EquippWeapon(weapon);
+
+            // Przywraca pozycjê gracza
+            SerializableVector3 playerPosition = playerState.playerPosition;           
+            transform.position = playerPosition.ToVector();
+        }
+
+        /*public void RestoreState(object state)
+        {
             string weaponName = (string)state; 
             WeaponConfig weapon = UnityEngine.Resources.Load<WeaponConfig>(weaponName);
             EquippWeapon(weapon);
-        }
+            //miejsce
+            SerializableVector3 position = (SerializableVector3)state;
+            navMeshAgent.enabled = false;
+            transform.position = position.ToVector();
+            navMeshAgent.enabled = true;
+            GetComponent<ActionScheduler>().CancelCurrentAction();
+        }*/
+
     }
    
 }

@@ -20,11 +20,7 @@ namespace RPG.Combat
             //UpdateMMCurrentHealth();
         }
 
-        private float UpdateMMCurrentHealth()
-        {
-            float value = healthUpdate.MMGetHealth() / healthUpdate.MMMaxHealth();
-            return value;
-        }
+       
 
         private void HealthBar()
         {

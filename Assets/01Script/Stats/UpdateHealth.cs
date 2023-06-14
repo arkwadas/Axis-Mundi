@@ -38,8 +38,8 @@ namespace RPG.Combat
         private void Update()
         {
            // UpdatesHealth();
-            MMGetHealth();
-            MMMaxHealth();
+           // MMGetHealth();
+            //MMMaxHealth();
             ToSameHealth();
         }
 
@@ -56,7 +56,8 @@ namespace RPG.Combat
 
         public void ToSameHealth()
         {
-            _health = GetComponent<Health>();
+            //_health = GetComponent<Health>();
+            //_health.CurrentHealth = healthPoints.value;
             healthPoints.value = _health.CurrentHealth;
         }
 
@@ -173,12 +174,13 @@ namespace RPG.Combat
         {
             return GetComponent<BaseStats>().GetStat(Stats.Stat.Health);
         }
+        
         public float MMMaxHealth()
         {
-            _health = GetComponent<Health>();
-            float healthValue = MaxHealth();
-            _health.MaximumHealth = healthValue;
-            return healthValue;
+           // _health = GetComponent<Health>();
+            float healthPoints = MaxHealth();
+            _health.MaximumHealth = healthPoints;
+            return healthPoints;
         }
 
         private void AwardExperience(GameObject instigator)
@@ -211,13 +213,14 @@ namespace RPG.Combat
 
         public object CaptureState()
         {
+            //healthValue.
             return healthPoints.value;
         }
 
         public void RestoreState(object state)
         {
             healthPoints.value = (float)state;
-
+           // healthValue.value =
             UpdateState();
         }
     }

@@ -23,7 +23,11 @@ MonoBehaviour:
   UIElement: {fileID: 0}
   allowedEquipLocation: 5
   equipCondition:
-    and: []
+    and:
+    - or:
+      - predicate: 
+        parameters: []
+        negate: 0
   characterClass: 0
   animatorOverride: {fileID: 22100000, guid: d5ace0de45ec90f45ab2ac5149843309, type: 2}
   equippedPrefab: {fileID: 3765626726961559281, guid: 4a44d84beb6970c42809a3e257f8922e,

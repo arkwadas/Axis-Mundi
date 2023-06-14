@@ -21,6 +21,8 @@ namespace RPG.Dialogue
             return CursorType.Dialogue;
         }
 
+        //!!!!!!!!!!!!!!!!!! to dodaæ ¿eby po œmierci z nimi nie gadaæ gdybym zdecydowa³ siê na te rozwiazanie
+
         /*public bool HandleRaycast(InteractUI callingController)
         {
             if (dialogue == null)

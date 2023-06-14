@@ -10,7 +10,7 @@ namespace RPG.Inventories {
 
         float balance = 0;
 
-        public event Action onChange;
+        public event Action OnChange;
 
         private void Awake() {
             balance = startingBalance;
@@ -24,9 +24,9 @@ namespace RPG.Inventories {
         public void UpdateBalance(float amount)
         {
             balance += amount;
-            if (onChange != null)
+            if (OnChange != null)
             {
-                onChange();
+                OnChange();
             }
         }
 

@@ -6,8 +6,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RPG.Combat
-   
+namespace RPG.Stats
+
 {
 
 public class Mana : MonoBehaviour, ISaveable
@@ -43,12 +43,12 @@ public class Mana : MonoBehaviour, ISaveable
 
         public float GetMaxMana()
         {
-            return GetComponent<BaseStats>().GetStat(Stats.Stat.Mana);
+            return GetComponent<BaseStats>().GetStat(Stat.Mana);
         }
 
         public float GetRegenRate()
         {
-            return GetComponent<BaseStats>().GetStat(Stats.Stat.ManaRegenRate);
+            return GetComponent<BaseStats>().GetStat(Stat.ManaRegenRate);
         }
 
         public bool UseMana(float manaToUse)

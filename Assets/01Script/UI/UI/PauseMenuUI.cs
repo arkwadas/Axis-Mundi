@@ -7,24 +7,32 @@ namespace RPG.UI
 {
     public class PauseMenuUI : MonoBehaviour
     {
-        Character playerController;
+
+        Attack playerController;
+        [SerializeField] GameObject wylaczGdyAktywnyIUruchom = null;
 
         private void Start() {
-            playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+            playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<Attack>();
+            //wylaczGdyAktywnyIUruchom.SetActive(true);
         }
 
         private void OnEnable()
         {
+            wylaczGdyAktywnyIUruchom.SetActive(false);
             if (playerController == null) return;
             Time.timeScale = 0;
             playerController.enabled = false;
+            
+
         }
 
         private void OnDisable()
         {
+            wylaczGdyAktywnyIUruchom.SetActive(true);
             if (playerController == null) return;
-            Time.timeScale = 5;
+            Time.timeScale = 1;
             playerController.enabled = true;
+            
         }
 
         public void Save()
