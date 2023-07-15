@@ -198,6 +198,11 @@ namespace RPG.Combat
             _health.CurrentHealth = Mathf.Max(_health.CurrentHealth, regenHealthPoints);
         }
 
+        public float GetPercentage()
+        {
+            return 100 * GetFraction();
+        }
+
         public float GetFraction()
         {
             return healthPoints.value / GetComponent<BaseStats>().GetStat(Stats.Stat.Health);

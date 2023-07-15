@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeathDrop : MonoBehaviour
 {
     public Health health;
-    public RandomDropper dropper;
+    public PewnyDrop dropper;
 
     private void Update()
     {

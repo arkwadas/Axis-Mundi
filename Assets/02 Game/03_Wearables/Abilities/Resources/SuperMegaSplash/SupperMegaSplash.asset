@@ -23,7 +23,7 @@ MonoBehaviour:
   price: 50
   category: 5
   UIElement: {fileID: 0}
-  consumable: 0
+  consumable: 1
   targetingStrategy: {fileID: 11400000, guid: 01213096e7480914faa66ea90b253692, type: 2}
   filterStrategies:
   - {fileID: 11400000, guid: 94beb09429a03214f90b3d78fbbc1bb9, type: 2}

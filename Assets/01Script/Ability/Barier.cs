@@ -1,3 +1,4 @@
+using MoreMountains.TopDownEngine;
 using RPG.Audio;
 using RPG.Combat;
 using RPG.Stats;
@@ -77,7 +78,7 @@ public class Barier : MonoBehaviour
 
 
     public GameObject particleEffect;
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "ParticleEffect")

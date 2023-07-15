@@ -12,6 +12,7 @@ using RPG.Combat;
 using GameDevTV.Inventories;
 using RPG.Invetories;
 using TMPro;
+using GameDevTV.Saving;
 
 //namespace RPG.Stats
 namespace MoreMountains.Tools
@@ -21,7 +22,7 @@ namespace MoreMountains.Tools
     /// </summary>
     //[AddComponentMenu("More Mountains/Tools/GUI/MMHealthBar")]
 
-    public class BaseStats : MonoBehaviour
+    public class BaseStats : MonoBehaviour, ISaveable
     {
         [Range(1, 99)]
         [SerializeField] int startingLevel = 1;
@@ -157,6 +158,15 @@ namespace MoreMountains.Tools
             }
             return penultimateLevel + 1;
         }
-        
+
+        public object CaptureState()
+        {
+            return currentLevel.value;
+        }
+
+        public void RestoreState(object state)
+        {
+            currentLevel.value = (int)state;
+        }
     }
 }

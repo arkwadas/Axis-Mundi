@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using GameDevTV.Inventories;
 using RPG.Stats;
 using System.Collections.Generic;
 using MoreMountains.TopDownEngine;
 using RPG.Control;
-using System;
 using RPG.Customization;
+using UnityEditor;
+//using Object = System.Object;
 
 namespace RPG.Combat
 {
@@ -204,6 +206,136 @@ namespace RPG.Combat
             }
             
         }
-        
+
+        #region InventoryItemEditor Additions
+
+        public override string GetDescription()
+        {
+            string result = projectile ? "Ranged Weapon" : "Melee Weapon";
+            result += $"\n\n{GetRawDescription()}\n";
+            result += $"\nRange {weaponRange} meters";
+            result += $"\nBase Damage {weaponDamage} points";
+            if ((int)percentageBonus != 0)
+            {
+                string bonus = percentageBonus > 0 ? "<color=#8888ff>bonus</color>" : "<color=#ff8888>penalty</color>";
+                result += $"\n{(int)percentageBonus} percent {bonus} to attack.";
+            }
+            return result;
+        }
+
+#if UNITY_EDITOR
+
+        void OnValidate()
+        {
+            if (GetAllowedEquipLocation() != EquipLocation.Weapon)
+            {
+                SetAllowedEquipLocation(EquipLocation.Weapon);
+            }
+        }
+
+        void SetWeaponRange(float newWeaponRange)
+        {
+            if (FloatEquals(weaponRange, newWeaponRange)) return;
+            SetUndo("Set Weapon Range");
+            weaponRange = newWeaponRange;
+            Dirty();
+        }
+
+        void SetWeaponDamage(float newWeaponDamage)
+        {
+            if (FloatEquals(weaponDamage, newWeaponDamage)) return;
+            SetUndo("Set Weapon Damage");
+            weaponDamage = newWeaponDamage;
+            Dirty();
+        }
+
+        void SetPercentageBonus(float newPercentageBonus)
+        {
+            if (FloatEquals(percentageBonus, newPercentageBonus)) return;
+            SetUndo("Set Percentage Bonus");
+            percentageBonus = newPercentageBonus;
+            Dirty();
+        }
+
+        void SetIsRightHanded(bool newRightHanded)
+        {
+            if (isRightHanded == newRightHanded) return;
+            SetUndo(newRightHanded ? "Set as Right Handed" : "Set as Left Handed");
+            isRightHanded = newRightHanded;
+            Dirty();
+        }
+
+        void SetAnimatorOverride(AnimatorOverrideController newOverride)
+        {
+            if (newOverride == animatorOverride) return;
+            SetUndo("Change AnimatorOverride");
+            animatorOverride = newOverride;
+            Dirty();
+        }
+
+        void SetEquippedPrefab(GameObject potentialnewWeapon)
+        {
+            if (!potentialnewWeapon)
+            {
+                SetUndo("No Equipped Prefab");
+                equippedPrefab = null;
+                Dirty();
+                return;
+            }
+            if (!potentialnewWeapon.TryGetComponent(out Weapon newWeapon)) return;
+            if (newWeapon == equippedPrefab) return;
+            SetUndo("Set Equipped Prefab");
+            equippedPrefab = newWeapon;
+            Dirty();
+        }
+
+        void SetProjectile(GameObject potentialNewProjectile)
+        {
+            if (!potentialNewProjectile)
+            {
+                SetUndo("No Projectile");
+                projectile = null;
+                Dirty();
+                return;
+            }
+            if (!potentialNewProjectile.TryGetComponent(out Projectile newProjectile))
+            {
+                return;
+            }
+            if (newProjectile == projectile) return;
+            SetUndo("Set Projectile");
+            projectile = newProjectile;
+            Dirty();
+        }
+
+        public override bool IsLocationSelectable(Enum location)
+        {
+            EquipLocation candidate = (EquipLocation)location;
+            return candidate == EquipLocation.Weapon;
+        }
+
+        bool drawWeaponConfigData = true;
+        public override void DrawCustomInspector()
+        {
+            base.DrawCustomInspector();
+            drawWeaponConfigData = EditorGUILayout.Foldout(drawWeaponConfigData, "WeaponConfig Data", foldoutStyle);
+            if (!drawWeaponConfigData) return;
+            EditorGUILayout.BeginVertical(contentStyle);
+            //Trick to allow searching for the prefab using the . button instead of having to drag it in
+            GameObject potentialPrefab = equippedPrefab ? equippedPrefab.gameObject : null;
+            SetEquippedPrefab((GameObject)EditorGUILayout.ObjectField("Equipped Prefab", potentialPrefab, typeof(GameObject), false));
+            SetWeaponDamage(EditorGUILayout.Slider("Weapon Damage", weaponDamage, 0, 100));
+            SetWeaponRange(EditorGUILayout.Slider("Weapon Range", weaponRange, 1, 40));
+            SetPercentageBonus(EditorGUILayout.IntSlider("Percentage Bonus", (int)percentageBonus, -10, 100));
+            SetIsRightHanded(EditorGUILayout.Toggle("Is Right Handed", isRightHanded));
+            SetAnimatorOverride((AnimatorOverrideController)EditorGUILayout.ObjectField("Animator Override", animatorOverride, typeof(AnimatorOverrideController), false));
+            GameObject potentialProjectile = projectile ? projectile.gameObject : null;
+            SetProjectile((GameObject)EditorGUILayout.ObjectField("Projectile", potentialProjectile, typeof(GameObject), false));
+            EditorGUILayout.EndVertical();
+        }
+
+#endif
+        #endregion
+
     }
 }

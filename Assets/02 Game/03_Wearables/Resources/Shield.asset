@@ -19,8 +19,7 @@ MonoBehaviour:
   pickup: {fileID: 949412188870024398, guid: 61d288757b0b00645a292f4cebb76d09, type: 3}
   stackable: 0
   price: 20
-  category: 1
-  UIElement: {fileID: 0}
+  category: 2
   allowedEquipLocation: 6
   equipCondition:
     and: []

@@ -95,7 +95,7 @@ namespace RPG.Combat
             if (target != null && health != target) return;
             if (health == null || health.IsDead()) return;
             if (other.gameObject == instigator) return;
-            health.TakeDamage(instigator, damage);
+            //health.TakeDamage(instigator, damage);
 
             if (other.CompareTag("Enemy"))
             {

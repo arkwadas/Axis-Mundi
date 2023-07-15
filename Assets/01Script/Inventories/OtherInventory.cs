@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace GameDevTV.Inventories
 {
-    [RequireComponent(typeof(Inventory))]
+    //[RequireComponent(typeof(Inventory))]
     public class OtherInventory : MonoBehaviour
     {
-        private GameObject player;
+        /*private GameObject player;
         [SerializeField] float interactDistance = 4f;
         private float initialColliderRadius; // Dodane
         //public GameObject[] Disable;
@@ -66,6 +66,6 @@ namespace GameDevTV.Inventories
         public void ResetNpcColliderRadius()
         {
             coliderSize.radius = initialColliderRadius;
-        }
+        }*/
     }
 }

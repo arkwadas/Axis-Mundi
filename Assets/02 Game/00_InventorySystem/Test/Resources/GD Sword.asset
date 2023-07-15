@@ -15,17 +15,23 @@ MonoBehaviour:
   itemID: 2a562497-0faa-4090-9afa-90b08a98f1f0
   displayName: Unarmored
   description: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7bd0aec56a4d40046811729cde109838, type: 3}
   pickup: {fileID: 1724531217312310605, guid: 2f6a27b73faf2f643949c4e8a6dae074, type: 3}
   stackable: 0
+  price: 0
+  category: 0
   allowedEquipLocation: 5
+  equipCondition:
+    and: []
   characterClass: 0
   animatorOverride: {fileID: 22100000, guid: 1c46e6fd59a75f04ab768d478b83758c, type: 2}
   equippedPrefab: {fileID: 859823974979201668, guid: a9b0e1a30ce43a742ae508fb2c13a0f9,
     type: 3}
-  weaponDamage: 5
-  percentageBonus: 0
+  weaponDamage: 23.98
+  weaponMaxDamage: 5
+  percentageBonus: 30
   weaponRange: 2
   isRightHanded: 1
   projectile: {fileID: 0}
   timeBetweenShots: 0.5
+  newId: 0

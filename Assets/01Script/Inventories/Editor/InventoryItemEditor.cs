@@ -26,7 +26,7 @@ namespace GameDevTV.Inventories.Editor
         /// <param name="candidate"></param>
         public static void ShowEditorWindow(InventoryItem candidate)
         {
-            InventoryItemEditor window = GetWindow(typeof(InventoryItemEditor), false, "Dialogue Editor") as InventoryItemEditor;
+            InventoryItemEditor window = GetWindow(typeof(InventoryItemEditor), false, "InventoryItem") as InventoryItemEditor;
             if (candidate)
             {
                 window.OnSelectionChange();
@@ -58,21 +58,75 @@ namespace GameDevTV.Inventories.Editor
             selected = candidate;
             Repaint();
         }
+
+        GUIStyle previewStyle;
+        GUIStyle descriptionStyle;
+        GUIStyle headerStyle;
+
+        void OnEnable()
+        {
+            previewStyle = new GUIStyle();
+            previewStyle.normal.background = EditorGUIUtility.Load("Assets/Asset Packs/Fantasy RPG UI Sample/UI/Parts/Background_06.png") as Texture2D;
+            previewStyle.padding = new RectOffset(40, 40, 40, 40);
+            previewStyle.border = new RectOffset(0, 0, 0, 0);
+
+
+        }
+
+        bool stylesInitialized = false;
+
         void OnGUI()
         {
-            if (!selected)
+            if (selected == null)
             {
-                EditorGUILayout.HelpBox("No Dialogue Selected", MessageType.Error);
-                EditorGUILayout.HelpBox("No InventoryItem Selected", MessageType.Error);
+                EditorGUILayout.HelpBox("No Item Selected", MessageType.Error);
                 return;
             }
-            EditorGUILayout.HelpBox($"{selected.name}/{selected.GetDisplayName()}", MessageType.Info);
-            selected.SetItemID(EditorGUILayout.TextField("ItemID (clear to reset", selected.GetItemID()));
-            selected.SetDisplayName(EditorGUILayout.TextField("Display name", selected.GetDisplayName()));
-            selected.SetDescription(EditorGUILayout.TextField("Description", selected.GetDescription()));
-            selected.SetIcon((Sprite)EditorGUILayout.ObjectField("Icon", selected.GetIcon(), typeof(Sprite), false));
-            selected.SetPickup((Pickup)EditorGUILayout.ObjectField("Pickup", selected.GetPickup(), typeof(Pickup), false));
-            selected.SetStackable(EditorGUILayout.Toggle("Stackable", selected.IsStackable()));
+            if (!stylesInitialized)
+            {
+                descriptionStyle = new GUIStyle(GUI.skin.label)
+                {
+                    richText = true,
+                    wordWrap = true,
+                    stretchHeight = true,
+                    fontSize = 14,
+                    alignment = TextAnchor.MiddleCenter
+                };
+                headerStyle = new GUIStyle(descriptionStyle) { fontSize = 24 };
+                stylesInitialized = true;
+            }
+            Rect rect = new Rect(0, 0, position.width * .65f, position.height);
+            DrawInspector(rect);
+            rect.x = rect.width;
+            rect.width /= 2.0f;
+
+            DrawPreviewTooltip(rect);
+        }
+
+        void DrawPreviewTooltip(Rect rect)
+        {
+            GUILayout.BeginArea(rect, previewStyle);
+            if (selected.GetIcon() != null)
+            {
+                float iconSize = Mathf.Min(rect.width * .33f, rect.height * .33f);
+                Rect texRect = GUILayoutUtility.GetRect(iconSize, iconSize);
+                GUI.DrawTexture(texRect, selected.GetIcon().texture, ScaleMode.ScaleToFit);
+            }
+
+            EditorGUILayout.LabelField(selected.GetDisplayName(), headerStyle);
+            EditorGUILayout.LabelField(selected.GetDescription(), descriptionStyle);
+            GUILayout.EndArea();
+        }
+
+
+        Vector2 scrollPosition;
+        void DrawInspector(Rect rect)
+        {
+            GUILayout.BeginArea(rect);
+            scrollPosition = GUILayout.BeginScrollView(scrollPosition);
+            selected.DrawCustomInspector();
+            GUILayout.EndScrollView();
+            GUILayout.EndArea();
         }
     }
 }

@@ -75,7 +75,7 @@ namespace RPG.Stats
 
         public float GetStat(Stat stat, CharacterClass characterClass, int level)
         {
-            BuildLookup();
+            //BuildLookup();
 
             if (!lookupTable[characterClass].ContainsKey(stat))
             {
@@ -94,7 +94,7 @@ namespace RPG.Stats
                 return levels[levels.Length - 1];
             }
 
-            return levels[level - 1];
+            return levels[level];
         }
 
         public int GetLevels(Stat stat, CharacterClass characterClass)

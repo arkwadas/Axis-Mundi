@@ -54,19 +54,22 @@ namespace RPG.SceneManagement
 
             yield return fader.FadeOut(fadeOutTime);
 
-            wrapper.Save();
+            //wrapper.Save();
+            wrapper.AutoSave();
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad); //£adownie sceny asynchronicznej;
             // remove cotrol
             TopDownController3D newPlayerController = GameObject.FindWithTag("Player").GetComponent<TopDownController3D>();
             newPlayerController.enabled = false;
 
-            wrapper.Load();
+            // wrapper.Load();
+            wrapper.LoadAutoSave();
 
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
 
-            wrapper.Save();
+            //wrapper.Save();
+            wrapper.AutoSave();
 
             yield return new WaitForSeconds(fadeWaitTime);
             fader.FadeIn(fadeInTime);

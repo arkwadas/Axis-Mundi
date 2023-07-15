@@ -5,7 +5,7 @@ using GameDevTV.Inventories;
 
 public class KontaktSize : MonoBehaviour
 {
-    [SerializeField] OtherInventory ContactBigSize = null;
+    /*[SerializeField] OtherInventory ContactBigSize = null;
     public GameObject ImageShop = null;
 
     private void OnTriggerEnter(Collider other)
@@ -35,5 +35,5 @@ public class KontaktSize : MonoBehaviour
     public void ShopImageDisable()
     {
         ImageShop.SetActive(false);
-    }
+    }*/
 }

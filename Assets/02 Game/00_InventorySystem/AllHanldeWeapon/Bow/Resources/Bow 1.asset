@@ -12,18 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8338b9abee3acae468538278cd3f756e, type: 3}
   m_Name: Bow 1
   m_EditorClassIdentifier: 
-  itemID: d75a6be8-86a3-44c5-839c-7bd1991ec307
+  itemID: dc4c4cd9-04b6-4642-81aa-25835980dca5
   displayName: Bow
   description: sadsad
   icon: {fileID: 21300000, guid: 656fd0150902d7649ba2dabc3c4e68e3, type: 3}
   pickup: {fileID: 1724531217312310605, guid: c687a612fc9362641a8763d2b32d5ca3, type: 3}
   stackable: 1
-  allowedEquipLocation: 0
+  price: 0
+  category: 0
+  UIElement: {fileID: 0}
+  allowedEquipLocation: 5
+  equipCondition:
+    and: []
   characterClass: 0
   animatorOverride: {fileID: 22100000, guid: d5ace0de45ec90f45ab2ac5149843309, type: 2}
   equippedPrefab: {fileID: 3765626726961559281, guid: 4a44d84beb6970c42809a3e257f8922e,
     type: 3}
   weaponDamage: 5
+  weaponMaxDamage: 5
   percentageBonus: 0
   weaponRange: 100
   isRightHanded: 0
@@ -31,4 +37,3 @@ MonoBehaviour:
     type: 3}
   timeBetweenShots: 0.5
   newId: 3
-  helmet: {fileID: 0}

@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 1288393933571339237}
   - component: {fileID: 2887560597344074763}
   - component: {fileID: 2406140770974350537}
-  - component: {fileID: 1880733872}
-  - component: {fileID: 4600147836812995526}
   m_Layer: 0
   m_Name: PickupSpowner
   m_TagString: Untagged
@@ -33,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2887560597344074763
 MonoBehaviour:
@@ -47,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4417844ce4278440a80c74bc10e69de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: dc421e67bb4103a40b57d95470cf4de2, type: 2}
-  number: 1
+  item: {fileID: 0}
+  number: 0
   sound: Pickup
 --- !u!114 &2406140770974350537
 MonoBehaviour:
@@ -62,31 +60,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueIdentifier: 41110a42-e304-4eab-b531-48cfd240f3c9
---- !u!114 &1880733872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613782154166906409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a82d3bf429718f49ac6922ffeffbc00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BrakEkwipunku: {fileID: 0}
-  AktywujEkwipunek: {fileID: 0}
---- !u!65 &4600147836812995526
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613782154166906409}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4, y: 2, z: 4}
-  m_Center: {x: 0, y: 0, z: 0}
+  uniqueIdentifier: 

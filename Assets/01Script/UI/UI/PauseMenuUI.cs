@@ -13,7 +13,7 @@ namespace RPG.UI
 
         private void Start() {
             playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<Attack>();
-            //wylaczGdyAktywnyIUruchom.SetActive(true);
+            wylaczGdyAktywnyIUruchom.SetActive(true);
         }
 
         private void OnEnable()
@@ -28,7 +28,7 @@ namespace RPG.UI
 
         private void OnDisable()
         {
-            wylaczGdyAktywnyIUruchom.SetActive(true);
+            //wylaczGdyAktywnyIUruchom.SetActive(true);
             if (playerController == null) return;
             Time.timeScale = 1;
             playerController.enabled = true;

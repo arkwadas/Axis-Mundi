@@ -1,4 +1,5 @@
 using GameDevTV.Inventories;
+using GameDevTV.Saving;
 using MoreMountains.Tools;
 using RPG.Stats;
 using UnityEngine;
@@ -6,10 +7,10 @@ using UnityEngine.AI;
 
 namespace RPG.Inventories
 {
-    public class RandomDropper : ItemDropper
+    public class RandomDropper : MonoBehaviour //ItemDropper
     {
         // CONFIG DATA
-        [Tooltip("How far can the pickups be scattered from the dropper.")]
+       /* [Tooltip("How far can the pickups be scattered from the dropper.")]
         [SerializeField] float scatterDistance = 1;
         [SerializeField] DropLibrary dropLibrary;
 
@@ -24,7 +25,7 @@ namespace RPG.Inventories
             foreach (var drop in drops)
             {
                 DropItem(drop.item, drop.number);
-            }      
+            }
         }
         protected override Vector3 GetDropLocation()
         {
@@ -39,7 +40,7 @@ namespace RPG.Inventories
                 }
             }
             return transform.position;
-        
-        }
+
+        }*/
     }
 }

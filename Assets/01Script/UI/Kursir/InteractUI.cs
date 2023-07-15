@@ -20,7 +20,7 @@ public class InteractUI : MonoBehaviour
     }
     [SerializeField] CursorMapping[] cursorMappings = null; // do kursora
     [SerializeField] float maxNavMeshProjectionDistance = 0.3f;
-    [SerializeField] float raycastRadius = 0.3f;
+    [SerializeField] float raycastRadius = 1f;
 
     // INTEGRACJA Z ACTION INVENTORY
     ActionStore actionStore;
@@ -41,6 +41,7 @@ public class InteractUI : MonoBehaviour
         if (InteractWithUI()) return;
         //ACTION INVENTORY
         UseAbilities();
+        if (InteractWithComponent()) return;
     }
 
 

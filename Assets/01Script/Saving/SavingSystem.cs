@@ -22,10 +22,12 @@ namespace GameDevTV.Saving
         /// must be run as a coroutine.
         /// </summary>
         /// <param name="saveFile">The save file to consult for loading.</param>
+        //public IEnumerator LoadLastScene(string saveFile)
         public IEnumerator LoadLastScene(string saveFile)
         {
             Dictionary<string, object> state = LoadFile(saveFile);
             int buildIndex = SceneManager.GetActiveScene().buildIndex;
+          //  int buildIndex = defaultBuildIndex;
             if (state.ContainsKey("lastSceneBuildIndex"))
             {
                 buildIndex = (int)state["lastSceneBuildIndex"];
@@ -65,13 +67,28 @@ namespace GameDevTV.Saving
             return File.Exists(path);
         }
 
-        public IEnumerable<string> ListSaves()
+        /*public IEnumerable<string> ListSaves()
         {
             foreach (string path in Directory.EnumerateFiles(Application.persistentDataPath))
             {
                 if (Path.GetExtension(path) == ".sav")
                 {
                     yield return Path.GetFileNameWithoutExtension(path);
+                }
+            }
+        }*/
+
+        public IEnumerable<string> ListSaves()
+        {
+            foreach (string file in Directory.EnumerateFiles(Application.persistentDataPath))
+            {
+                /*if (Path.GetExtension(file) == ".sav")
+                {
+                    yield return Path.GetFileNameWithoutExtension(file);
+                }*/
+                if (file.EndsWith(".sav"))
+                {
+                    yield return file.Remove(file.Length - 4);
                 }
             }
         }
@@ -125,6 +142,7 @@ namespace GameDevTV.Saving
 
         private string GetPathFromSaveFile(string saveFile)
         {
+            saveFile = string.Concat(saveFile.Split(Path.GetInvalidFileNameChars()));
             return Path.Combine(Application.persistentDataPath, saveFile + ".sav");
         }
     }
