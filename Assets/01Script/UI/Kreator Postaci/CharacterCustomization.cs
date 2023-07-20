@@ -97,8 +97,8 @@ namespace RPG.Customization
 
         private void Start()
         {
-            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
-            wrapper.Load();
+            /*SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+            wrapper.Load();*/
 
             // Za³aduj poni¿sze modele na pocz¹tku sceny
             Hair();

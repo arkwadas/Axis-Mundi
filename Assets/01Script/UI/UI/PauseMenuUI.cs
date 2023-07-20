@@ -10,6 +10,8 @@ namespace RPG.UI
 
         Attack playerController;
         [SerializeField] GameObject wylaczGdyAktywnyIUruchom = null;
+        public GameObject[] obiektNull = null;
+
 
         private void Start() {
             playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<Attack>();
@@ -20,18 +22,38 @@ namespace RPG.UI
         {
             wylaczGdyAktywnyIUruchom.SetActive(false);
             if (playerController == null) return;
-            Time.timeScale = 0;
-            playerController.enabled = false;
             
+            playerController.enabled = false;
+            Time.timeScale = 0;
 
         }
 
         private void OnDisable()
         {
-            //wylaczGdyAktywnyIUruchom.SetActive(true);
-            if (playerController == null) return;
-            Time.timeScale = 1;
-            playerController.enabled = true;
+            
+            // Sprawdzamy, czy wszystkie obiekty w liœcie s¹ wy³¹czone
+            bool allObjectsInactive = true;
+            foreach (GameObject obj in obiektNull)
+            {
+                if (obj.activeSelf)
+                {
+                    allObjectsInactive = false;
+                    break;
+                }
+            }
+
+            // Jeœli wszystkie obiekty s¹ wy³¹czone, wykonujemy jak¹œ akcjê
+            if (allObjectsInactive)
+            {
+                Time.timeScale = 1;
+                wylaczGdyAktywnyIUruchom.SetActive(true);
+                if (playerController == null) return;
+
+                playerController.enabled = true;
+            }
+            
+            
+            
             
         }
 
@@ -45,7 +67,7 @@ namespace RPG.UI
         {
             SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
             savingWrapper.Save();
-            savingWrapper.LoadMenu();
+            savingWrapper.OpenMenu();
         }
     }
 }

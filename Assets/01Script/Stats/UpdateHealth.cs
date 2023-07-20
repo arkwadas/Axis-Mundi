@@ -51,7 +51,7 @@ namespace RPG.Combat
         private void Start()
         {
             //healthPoints.ForceInit();
-            MMCurrentHealth();
+            //MMCurrentHealth(); to usunalem bo sie przy czytywaniu ³adowa³o cale ¿ycie
         }
 
         public void ToSameHealth()

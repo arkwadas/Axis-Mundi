@@ -19,10 +19,7 @@ namespace RPG.SceneManagement
         [SerializeField] int menuLevelBuildIndex = 0;
 
 
-        private void Awake()
-        {
-            StartCoroutine(LoadLastScene());
-        }
+   
 
         public void ContinueGame()
         {
@@ -46,12 +43,15 @@ namespace RPG.SceneManagement
             StartCoroutine(LoadScene(saveFile));
         }
 
-        public void LoadMenu()
+        private IEnumerator LoadMenu()
         {
-            StartCoroutine(LoadMenuScene());
+            Fader fader = FindObjectOfType<Fader>();
+            yield return fader.FadeOut(fadeInTime);
+            yield return SceneManager.LoadSceneAsync(0);
+            yield return fader.FadeIn(fadeInTime);
         }
 
-       
+
 
         private string GetCurrentSave()
         {
@@ -87,7 +87,7 @@ namespace RPG.SceneManagement
         {
             Fader fader = FindObjectOfType<Fader>();
             yield return fader.FadeOut(fadeInTime);
-            yield return GetComponent<SavingSystem>().LoadLastScene(saveFile, 1);
+            yield return GetComponent<SavingSystem>().LoadLastScene(saveFile);
             yield return fader.FadeIn(fadeInTime);
         }
 
@@ -99,13 +99,13 @@ namespace RPG.SceneManagement
             yield return fader.FadeIn(fadeInTime);
         }
 
-        private IEnumerator LoadMenuScene()
+        /*private IEnumerator LoadMenuScene()
         {
             Fader fader = FindObjectOfType<Fader>();
             yield return fader.FadeOut(fadeOutTime);
             yield return SceneManager.LoadSceneAsync(menuLevelBuildIndex);
             yield return fader.FadeIn(fadeInTime);
-        }
+        }*/
 
        
         private void Update()
@@ -120,11 +120,12 @@ namespace RPG.SceneManagement
 
                 //LoadMenu();
                 //Load();
-                //StartCoroutine(LoadScene(GetCurrentSave()));
-                foreach (var item in GetComponent<SavingSystem>().ListSaves())
+                StartCoroutine(LoadScene(GetCurrentSave()));
+                /*foreach (var item in GetComponent<SavingSystem>().ListSaves())
                 {
                     print(item);
-                }
+                }*/
+                //Load();
                 //Load();
             }
             if (Input.GetKeyDown(KeyCode.Delete))
@@ -144,11 +145,8 @@ namespace RPG.SceneManagement
 
         public void Load()
         {
-            //GetComponent<SavingSystem>().Load(GetCurrentSave());
-            foreach (var item in GetComponent<SavingSystem>().ListSaves())
-            {
-                print(item);
-            }
+            GetComponent<SavingSystem>().Load(GetCurrentSave());
+            
         }
 
         public void Save()
@@ -192,7 +190,12 @@ namespace RPG.SceneManagement
         }
 
         // nowoœci do testów
-       
+        public void OpenMenu()
+        {
+            StartCoroutine(LoadMenu());
+        }
+
+        
 
         public void DeleteAutoSave()
         {

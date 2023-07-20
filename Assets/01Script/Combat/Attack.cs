@@ -335,6 +335,7 @@ namespace RPG.Control
 
             // Tworzy obiekt przechowuj¹cy nazwê broni i pozycjê gracza
             PlayerState state = new PlayerState(weaponName, playerPosition);
+            
 
             // Zwraca ten obiekt
             return state;

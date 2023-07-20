@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PlayerEquipmentManager : MonoBehaviour, ISaveable
+public class PlayerEquipmentManager : MonoBehaviour
 {
     [SerializeField]Equipment equipment;
 
@@ -509,17 +509,19 @@ public class PlayerEquipmentManager : MonoBehaviour, ISaveable
         // kod dlaa 2 recznosci
     }
 
-    public object CaptureState()
-    {
-        return helmet.value;
-        return torse.value;
-    }
 
-    public void RestoreState(object state)
-    {
-        torse.value = (float)state;
-        helmet.value = (float)state;
-    }
 
+    /*public object CaptureState()
+     {
+
+         return helmet.value;
+         return torse.value;
+     }
+
+     public void RestoreState(object state)
+     {
+         torse.value = (float)state;
+         helmet.value = (float)state;
+     }*/
 
 }
