@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
-//using RPG.Control;
-//using RPG.Saving;
+using RPG.Control;
+using GameDevTV.Saving;
 using MoreMountains.TopDownEngine;
 
 namespace RPG.SceneManagement
@@ -17,7 +17,7 @@ namespace RPG.SceneManagement
              A, B, C, D, E, F
         }
 
-        [SerializeField] int sceneToLoad = 1;
+        [SerializeField] int sceneToLoad = 13;
         [SerializeField] Transform spawnPoint;
         [SerializeField] DestinationIdentifer destination;
         [SerializeField] float fadeOutTime = 1f;
@@ -49,7 +49,7 @@ namespace RPG.SceneManagement
             Fader fader = FindObjectOfType<Fader>();
             SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
             // Remove Cotroler
-            TopDownController3D playerController = GameObject.FindWithTag("Player").GetComponent<TopDownController3D>();
+            Attack playerController = GameObject.FindWithTag("Player").GetComponent<Attack>();
             playerController.enabled = false;
 
             yield return fader.FadeOut(fadeOutTime);
@@ -59,8 +59,8 @@ namespace RPG.SceneManagement
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad); //£adownie sceny asynchronicznej;
             // remove cotrol
-            TopDownController3D newPlayerController = GameObject.FindWithTag("Player").GetComponent<TopDownController3D>();
-            newPlayerController.enabled = false;
+           // Attack newPlayerController = GameObject.FindWithTag("Player").GetComponent<Attack>();
+           // newPlayerController.enabled = false;
 
             // wrapper.Load();
             wrapper.LoadAutoSave();
@@ -76,15 +76,15 @@ namespace RPG.SceneManagement
 
 
             // restore control
-            newPlayerController.enabled = true;
+            //newPlayerController.enabled = true;
             Destroy(gameObject);
         }
 
         private void UpdatePlayer(Portal otherPortal)
         {
             GameObject player = GameObject.FindWithTag("Player");
-            player.GetComponent<NavMeshAgent>().Warp(otherPortal.spawnPoint.position);
-            
+            //player.GetComponent<NavMeshAgent>().Warp(otherPortal.spawnPoint.position);
+            player.transform.position = otherPortal.spawnPoint.position;
             player.transform.rotation = otherPortal.spawnPoint.rotation;
             
         }

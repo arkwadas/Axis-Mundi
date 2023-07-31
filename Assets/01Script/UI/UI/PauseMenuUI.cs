@@ -24,6 +24,11 @@ namespace RPG.UI
             if (playerController == null) return;
             
             playerController.enabled = false;
+            if(wylaczGdyAktywnyIUruchom != null)
+            {
+                wylaczGdyAktywnyIUruchom.SetActive(false);
+            }
+            wylaczGdyAktywnyIUruchom.SetActive(false);
             Time.timeScale = 0;
 
         }
@@ -51,10 +56,10 @@ namespace RPG.UI
 
                 playerController.enabled = true;
             }
-            
-            
-            
-            
+            Time.timeScale = 1;
+
+
+
         }
 
         public void Save()
